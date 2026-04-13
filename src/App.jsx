@@ -476,3 +476,8 @@ export default function CourseOrNothing() {
     BUILT BY GUASCH LABS
   </a>
 </div>
+        </div>
+      </div>
+    </>
+  );
+}
