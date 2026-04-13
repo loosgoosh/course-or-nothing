@@ -464,8 +464,18 @@ export default function CourseOrNothing() {
             letterSpacing: "0.2em",
             textTransform: "uppercase",
           }}>
-            <span>COURSE OR NOTHING™</span>
-            <span>ALL SKILLS ARE MONETIZABLE</span>
+            <<span>COURSE OR NOTHING™</span>
+<a 
+  href="https://www.guaschlabs.net" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  style={{ color: "#333", textDecoration: "none", letterSpacing: "0.2em" }}
+  onMouseEnter={(e) => e.target.style.color = "#39ff14"}
+  onMouseLeave={(e) => e.target.style.color = "#333"}
+>
+  BUILT BY GUASCH LABS
+</a>
+
           </div>
         </div>
       </div>
