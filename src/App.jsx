@@ -107,14 +107,17 @@ export default function CourseOrNothing() {
   return (
     <>
       <style>{glitchKeyframes}</style>
-      <div style={{
+            <div style={{
         minHeight: "100vh",
+        width: "100%",
+        maxWidth: "100%",
         background: C.black,
         color: C.white,
         fontFamily: "'Share Tech Mono', monospace",
         position: "relative",
         overflowX: "hidden",
       }}>
+
 
         {/* Scanline effect */}
         <div style={{
