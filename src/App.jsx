@@ -58,6 +58,8 @@ export default function CourseOrNothing() {
   const [error, setError] = useState(null);
   const [copied, setCopied] = useState(false);
   const [tick, setTick] = useState(true);
+  const [emailSent, setEmailSent] = useState(false);
+  const [emailValue, setEmailValue] = useState("");
 
   useEffect(() => {
     const t = setInterval(() => setTick((v) => !v), 530);
@@ -104,10 +106,21 @@ export default function CourseOrNothing() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const submitEmail = async () => {
+    if (!emailValue.trim()) return;
+    await fetch("https://formspree.io/f/xgoplldq", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: emailValue, course: result?.courseTitle }),
+    });
+    setEmailSent(true);
+    setEmailValue("");
+  };
+
   return (
     <>
       <style>{glitchKeyframes}</style>
-            <div style={{
+      <div style={{
         minHeight: "100vh",
         width: "100%",
         maxWidth: "100%",
@@ -117,7 +130,6 @@ export default function CourseOrNothing() {
         position: "relative",
         overflowX: "hidden",
       }}>
-
 
         {/* Scanline effect */}
         <div style={{
@@ -432,7 +444,7 @@ export default function CourseOrNothing() {
                   {copied ? "✓ COPIED" : "> COPY TO SHARE"}
                 </button>
                 <button
-                  onClick={() => { setResult(null); setInput(""); }}
+                  onClick={() => { setResult(null); setInput(""); setEmailSent(false); setEmailValue(""); }}
                   style={{
                     flex: 1,
                     padding: "14px",
@@ -446,36 +458,91 @@ export default function CourseOrNothing() {
                     cursor: "pointer",
                   }}
                 >
-                   TRY ANOTHER
+                  TRY ANOTHER
                 </button>
               </div>
+
+              {/* Email capture */}
+              <div style={{
+                border: `1px solid ${C.border}`,
+                borderTop: "none",
+                padding: "24px 32px",
+                background: "#050505",
+              }}>
+                <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>
+                  ▶ WANT TO ACTUALLY MAKE THIS A REALITY?
+                </div>
+                {emailSent ? (
+                  <div style={{ color: C.green, fontSize: "12px", letterSpacing: "0.2em" }}>
+                    ✓ WE'LL BE IN TOUCH.
+                  </div>
+                ) : (
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    <input
+                      type="email"
+                      value={emailValue}
+                      onChange={(e) => setEmailValue(e.target.value)}
+                      placeholder="YOUR EMAIL"
+                      style={{
+                        flex: 1,
+                        padding: "12px 16px",
+                        background: "transparent",
+                        border: `1px solid ${C.border}`,
+                        color: C.white,
+                        fontSize: "11px",
+                        letterSpacing: "0.2em",
+                        fontFamily: "'Share Tech Mono', monospace",
+                        outline: "none",
+                      }}
+                    />
+                    <button
+                      onClick={submitEmail}
+                      style={{
+                        padding: "12px 20px",
+                        background: C.green,
+                        border: "none",
+                        color: C.black,
+                        fontSize: "11px",
+                        letterSpacing: "0.2em",
+                        textTransform: "uppercase",
+                        fontFamily: "'Share Tech Mono', monospace",
+                        cursor: "pointer",
+                        fontWeight: "700",
+                      }}
+                    >
+                      SEND
+                    </button>
+                  </div>
+                )}
+              </div>
+
             </div>
           )}
 
-       {/* Footer */}
-<div style={{
-  marginTop: "80px",
-  paddingTop: "24px",
-  borderTop: `1px solid ${C.border}`,
-  display: "flex",
-  justifyContent: "space-between",
-  fontSize: "10px",
-  color: "#555",
-  letterSpacing: "0.2em",
-  textTransform: "uppercase",
-}}>
-  <span>COURSE OR NOTHING™ — ALL SKILLS ARE MONETIZABLE</span>
-  <a
-    href="https://www.guaschlabs.net"
-    target="_blank"
-    rel="noopener noreferrer"
-    style={{ color: "#555", textDecoration: "none", letterSpacing: "0.2em" }}
-    onMouseEnter={(e) => e.target.style.color = "#39ff14"}
-    onMouseLeave={(e) => e.target.style.color = "#555"}
-  >
-    BUILT BY GUASCH LABS
-  </a>
-</div>
+          {/* Footer */}
+          <div style={{
+            marginTop: "80px",
+            paddingTop: "24px",
+            borderTop: `1px solid ${C.border}`,
+            display: "flex",
+            justifyContent: "space-between",
+            fontSize: "10px",
+            color: "#555",
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+          }}>
+            <span>COURSE OR NOTHING™ — ALL SKILLS ARE MONETIZABLE</span>
+            <a
+              href="https://www.guaschlabs.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#555", textDecoration: "none", letterSpacing: "0.2em" }}
+              onMouseEnter={(e) => e.target.style.color = "#39ff14"}
+              onMouseLeave={(e) => e.target.style.color = "#555"}
+            >
+              BUILT BY GUASCH LABS
+            </a>
+          </div>
         </div>
       </div>
     </>
