@@ -303,16 +303,41 @@ export default function CourseOrNothing() {
           )}
 
           {/* Footer */}
-          <div style={{ marginTop: "80px", paddingTop: "24px", borderTop: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", fontSize: "10px", color: "#555", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-            <span>COURSE OR NOTHING™ — ALL SKILLS ARE MONETIZABLE</span>
-            <a href="https://www.guaschlabs.net" target="_blank" rel="noopener noreferrer" style={{ color: "#555", textDecoration: "none", letterSpacing: "0.2em" }}
-              onMouseEnter={(e) => e.target.style.color = "#39ff14"}
-              onMouseLeave={(e) => e.target.style.color = "#555"}>
-              BUILT BY GUASCH LABS
-            </a>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+<div style={{
+  marginTop: "80px",
+  paddingTop: "24px",
+  borderTop: `1px solid ${C.border}`,
+}}>
+  <div style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    fontSize: "10px",
+    color: "#555",
+    letterSpacing: "0.2em",
+    textTransform: "uppercase",
+    marginBottom: "16px",
+  }}>
+    <span>COURSE OR NOTHING™ — ALL SKILLS ARE MONETIZABLE</span>
+    <a href="https://www.guaschlabs.net" target="_blank" rel="noopener noreferrer"
+      style={{ color: "#555", textDecoration: "none", letterSpacing: "0.2em" }}
+      onMouseEnter={(e) => e.target.style.color = "#39ff14"}
+      onMouseLeave={(e) => e.target.style.color = "#555"}>
+      BUILT BY GUASCH LABS
+    </a>
+  </div>
+  <div style={{ display: "flex", gap: "16px" }}>
+    <a href="https://instagram.com/courseornothing" target="_blank" rel="noopener noreferrer"
+      style={{ color: "#555", textDecoration: "none", fontSize: "20px" }}
+      onMouseEnter={(e) => e.target.style.color = "#39ff14"}
+      onMouseLeave={(e) => e.target.style.color = "#555"}>
+      ◈
+    </a>
+    <a href="https://x.com/courseornothing" target="_blank" rel="noopener noreferrer"
+      style={{ color: "#555", textDecoration: "none", fontSize: "18px", fontWeight: "bold" }}
+      onMouseEnter={(e) => e.target.style.color = "#39ff14"}
+      onMouseLeave={(e) => e.target.style.color = "#555"}>
+      𝕏
+    </a>
+  </div>
+</div>
