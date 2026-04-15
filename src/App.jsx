@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 const API_URL = "https://insurance-commission-tracker-production.up.railway.app/api/course/generate";
 
@@ -317,6 +318,7 @@ export default function CourseOrNothing() {
 
         </div>
       </div>
+      <Analytics />
     </>
   );
 }
