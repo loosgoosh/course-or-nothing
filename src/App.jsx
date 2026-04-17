@@ -3,8 +3,8 @@ import { Analytics } from "@vercel/analytics/react";
 
 const API_URL = "https://insurance-commission-tracker-production.up.railway.app/api/course/generate";
 
-const STRIPE_MONTHLY = "https://buy.stripe.com/28E28s9WWcAjh2k32UbZe07";
-const STRIPE_LIFETIME = "https://buy.stripe.com/00weVe7OO43NdQ846YbZe06";
+const STRIPE_MONTHLY = "https://buy.stripe.com/4gM8wQc548k3h2k6f6bZe08";
+const STRIPE_LIFETIME = "https://buy.stripe.com/5kQbJ20mm2ZJfYg0UMbZe09";
 const GUMROAD_COURSE = "https://guaschlabs.gumroad.com/l/ijqhs";
 
 const FREE_LIMIT = 3;
