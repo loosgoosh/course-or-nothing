@@ -10,6 +10,19 @@ const GUMROAD_COURSE = "https://guaschlabs.gumroad.com/l/ijqhs";
 const FREE_LIMIT = 3;
 const STORAGE_COUNT_KEY = "con_uses";
 const STORAGE_PAID_KEY = "con_paid";
+const STORAGE_RESET_KEY = "con_reset";
+
+const getUsesLeft = () => {
+  if (localStorage.getItem(STORAGE_PAID_KEY)) return 999;
+  const reset = parseInt(localStorage.getItem(STORAGE_RESET_KEY) || "0", 10);
+  const now = Date.now();
+  if (now - reset > 24 * 60 * 60 * 1000) {
+    localStorage.setItem(STORAGE_COUNT_KEY, "0");
+    localStorage.setItem(STORAGE_RESET_KEY, String(now));
+  }
+  const count = parseInt(localStorage.getItem(STORAGE_COUNT_KEY) || "0", 10);
+  return Math.max(0, FREE_LIMIT - count);
+};
 
 const glitchKeyframes = `
   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&display=swap');
@@ -96,15 +109,13 @@ export default function CourseOrNothing() {
 
   useEffect(() => { const t = setInterval(() => setTick((v) => !v), 530); return () => clearInterval(t); }, []);
   useEffect(() => {
-    const paid = localStorage.getItem(STORAGE_PAID_KEY);
-    if (!paid) {
-      const count = parseInt(localStorage.getItem(STORAGE_COUNT_KEY) || "0", 10);
-      setUsesLeft(Math.max(0, FREE_LIMIT - count));
-    } else { setUsesLeft(999); }
+    setUsesLeft(getUsesLeft());
   }, []);
 
   const isPaid = () => !!localStorage.getItem(STORAGE_PAID_KEY);
   const incrementUse = () => {
+    const reset = localStorage.getItem(STORAGE_RESET_KEY);
+    if (!reset) localStorage.setItem(STORAGE_RESET_KEY, String(Date.now()));
     const count = parseInt(localStorage.getItem(STORAGE_COUNT_KEY) || "0", 10);
     const next = count + 1;
     localStorage.setItem(STORAGE_COUNT_KEY, String(next));
