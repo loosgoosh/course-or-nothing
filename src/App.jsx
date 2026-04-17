@@ -56,7 +56,7 @@ function PaywallModal({ onClose }) {
               onMouseLeave={e => e.currentTarget.style.background = C.greenFaint}>
               <div>
                 <div style={{ color: C.green, fontSize: "10px", letterSpacing: "0.3em", marginBottom: "6px" }}>MONTHLY ACCESS</div>
-                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "32px", color: C.white, letterSpacing: "0.03em" }}>$4 / MONTH</div>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "32px", color: C.white, letterSpacing: "0.03em" }}>$1.99 / MONTH</div>
                 <div style={{ color: C.gray, fontSize: "10px", letterSpacing: "0.15em", marginTop: "4px" }}>CANCEL ANYTIME</div>
               </div>
               <span style={{ color: C.green, fontSize: "20px" }}>→</span>
@@ -68,7 +68,7 @@ function PaywallModal({ onClose }) {
               onMouseLeave={e => e.currentTarget.style.borderColor = C.border}>
               <div>
                 <div style={{ color: C.gray, fontSize: "10px", letterSpacing: "0.3em", marginBottom: "6px" }}>LIFETIME ACCESS ★ BEST VALUE</div>
-                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "32px", color: C.white, letterSpacing: "0.03em" }}>$29 ONE TIME</div>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "32px", color: C.white, letterSpacing: "0.03em" }}>$20 ONE TIME</div>
                 <div style={{ color: C.gray, fontSize: "10px", letterSpacing: "0.15em", marginTop: "4px" }}>PAY ONCE. USE FOREVER.</div>
               </div>
               <span style={{ color: C.gray, fontSize: "20px" }}>→</span>
