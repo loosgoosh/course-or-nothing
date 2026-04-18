@@ -197,9 +197,15 @@ export default function CourseOrNothing() {
   const [showPaywall, setShowPaywall] = useState(false);
   const [usesLeft, setUsesLeft] = useState(FREE_LIMIT);
   const [sharedTo, setSharedTo] = useState("");
+  const blimpOptions = ["CON", "COURSE OR NOTHING", "#ALLSKILLSAREMONETIZABLE"];
+  const [blimpIdx, setBlimpIdx] = useState(0);
 
   useEffect(() => { const t = setInterval(() => setTick((v) => !v), 530); return () => clearInterval(t); }, []);
   useEffect(() => { setUsesLeft(getUsesLeft()); }, []);
+  useEffect(() => {
+    const t = setInterval(() => setBlimpIdx(i => (i + 1) % 3), 60000);
+    return () => clearInterval(t);
+  }, []);
 
   const isPaid = () => !!localStorage.getItem(STORAGE_PAID_KEY);
   const incrementUse = () => {
@@ -308,7 +314,7 @@ export default function CourseOrNothing() {
             <polygon points="270,52 310,74 305,52" fill="#39ff14"/>
             <polygon points="270,52 285,10 275,52" fill="#39ff14"/>
             <polygon points="270,52 285,94 275,52" fill="#39ff14"/>
-            <text x="100" y="60" fontFamily="monospace" fontSize="22" fontWeight="bold" fill="#000" letterSpacing="4">CON</text>
+            <text x="145" y="58" fontFamily="monospace" fontSize="14" fontWeight="bold" fill="#000" textAnchor="middle">{blimpOptions[blimpIdx]}</text>
           </svg>
         </div>
         <div style={{ position: "fixed", top: 0, left: 0, right: 0, height: "2px", background: "rgba(57,255,20,0.08)", animation: "scanline 6s linear infinite", pointerEvents: "none", zIndex: 998 }} />
