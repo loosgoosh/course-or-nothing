@@ -40,6 +40,12 @@ const glitchKeyframes = `
   @keyframes pulse-green { 0%, 100% { box-shadow: 0 0 0px #39ff14; } 50% { box-shadow: 0 0 12px #39ff14; } }
   @keyframes modalIn { from { opacity: 0; transform: scale(0.96) translateY(12px); } to { opacity: 1; transform: scale(1) translateY(0); } }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  @keyframes float-blimp {
+    0% { transform: translateX(110vw) translateY(0px); }
+    50% { transform: translateX(50vw) translateY(-20px); }
+    100% { transform: translateX(-30vw) translateY(0px); }
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   ::selection { background: #39ff14; color: #000; }
 `;
