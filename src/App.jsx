@@ -297,6 +297,20 @@ export default function CourseOrNothing() {
       <style>{glitchKeyframes}</style>
       {showPaywall && <PaywallModal onClose={() => setShowPaywall(false)} />}
       <div style={{ minHeight: "100vh", width: "100%", maxWidth: "100%", background: C.black, color: C.white, fontFamily: "'Share Tech Mono', monospace", position: "relative", overflowX: "hidden" }}>
+        
+        <div style={{ position: "fixed", top: "15%", left: 0, right: 0, zIndex: 1, pointerEvents: "none", animation: "float-blimp 25s linear infinite", opacity: 0.35 }}>
+          <svg width="320" height="120" viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="145" cy="52" rx="130" ry="42" fill="#39ff14"/>
+            <rect x="110" y="90" width="50" height="16" rx="4" fill="#39ff14"/>
+            <line x1="120" y1="94" x2="115" y2="82" stroke="#39ff14" strokeWidth="2"/>
+            <line x1="150" y1="94" x2="155" y2="82" strokeWidth="2" stroke="#39ff14"/>
+            <polygon points="270,52 310,30 305,52" fill="#39ff14"/>
+            <polygon points="270,52 310,74 305,52" fill="#39ff14"/>
+            <polygon points="270,52 285,10 275,52" fill="#39ff14"/>
+            <polygon points="270,52 285,94 275,52" fill="#39ff14"/>
+            <text x="100" y="60" fontFamily="monospace" fontSize="22" fontWeight="bold" fill="#000" letterSpacing="4">CON</text>
+          </svg>
+        </div>
         <div style={{ position: "fixed", top: 0, left: 0, right: 0, height: "2px", background: "rgba(57,255,20,0.08)", animation: "scanline 6s linear infinite", pointerEvents: "none", zIndex: 998 }} />
         <TopBar />
 
