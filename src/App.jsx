@@ -264,6 +264,7 @@ export default function CourseOrNothing() {
           BUILT BY GUASCH LABS
         </a>
       </div>
+      <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "12px" }}>▶ JOIN THE CON COMMUNITY</div>
       <div style={{ display: "flex", gap: "16px" }}>
         <a href="https://instagram.com/courseornothing" target="_blank" rel="noopener noreferrer" style={{ color: "#555", textDecoration: "none" }}
           onMouseEnter={e => e.currentTarget.style.color = C.green} onMouseLeave={e => e.currentTarget.style.color = "#555"}>
