@@ -231,7 +231,7 @@ export default function CourseOrNothing() {
   const shareToTikTok = () => { navigator.clipboard.writeText(shareText); window.open("https://www.tiktok.com/", "_blank"); setSharedTo("tt"); setTimeout(() => setSharedTo(""), 3000); };
   const submitEmail = async () => {
     if (!emailValue.trim()) return;
-    await fetch("https://formspree.io/f/xgoplldq", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: emailValue, course: result?.courseTitle }) });
+    await fetch("https://formspree.io/f/mbdqyyly", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: emailValue, course: result?.courseTitle }) });
     setEmailSent(true); setEmailValue("");
   };
 
