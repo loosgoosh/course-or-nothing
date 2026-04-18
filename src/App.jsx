@@ -243,7 +243,7 @@ export default function CourseOrNothing() {
         COURSEORNOTHING.COM
       </button>
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-        <button onClick={() => setPage("shop")} style={{ background: "none", border: "none", cursor: "pointer", color: page === "shop" ? C.green : C.gray, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace", textTransform: "uppercase" }}>
+        <button onClick={() => setPage("shop")} style={{ background: "none", border: "none", cursor: "pointer", color: C.green, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace", textTransform: "uppercase" }}>
           SHOP
         </button>
         {page === "home" && (
