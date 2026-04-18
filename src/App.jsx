@@ -298,7 +298,7 @@ export default function CourseOrNothing() {
       {showPaywall && <PaywallModal onClose={() => setShowPaywall(false)} />}
       <div style={{ minHeight: "100vh", width: "100%", maxWidth: "100%", background: C.black, color: C.white, fontFamily: "'Share Tech Mono', monospace", position: "relative", overflowX: "hidden" }}>
         
-        <div style={{ position: "fixed", top: "15%", left: 0, right: 0, zIndex: 1, pointerEvents: "none", animation: "float-blimp 25s linear infinite", opacity: 0.35 }}>
+        <div style={{ position: "fixed", top: "15%", left: 0, right: 0, zIndex: 1, pointerEvents: "none", animation: "float-blimp 60s linear infinite", opacity: 0.35 }}>
           <svg width="320" height="120" viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="145" cy="52" rx="130" ry="42" fill="#39ff14"/>
             <rect x="110" y="90" width="50" height="16" rx="4" fill="#39ff14"/>
