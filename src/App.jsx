@@ -368,6 +368,7 @@ export default function CourseOrNothing() {
               <p style={{ color: C.gray, fontSize: "13px", letterSpacing: "0.1em", lineHeight: 1.8, maxWidth: "480px", textTransform: "uppercase" }}>
                 Tell us one thing about yourself.<br />We will identify your course.{" "}
                 <span style={{ color: C.green }}>There are no wrong answers.</span>
+              <br /><br /><span style={{ color: C.green, fontSize: "11px", letterSpacing: "0.2em" }}>▶ TYPE ANYTHING. GET A COURSE IDEA INSTANTLY.</span>
               </p>
             </div>
 
