@@ -41,6 +41,11 @@ const glitchKeyframes = `
   @keyframes modalIn { from { opacity: 0; transform: scale(0.96) translateY(12px); } to { opacity: 1; transform: scale(1) translateY(0); } }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
+  @keyframes float-probe {
+    0% { transform: translateY(110vh) translateX(0px) rotate(0deg); }
+    50% { transform: translateY(50vh) translateX(8px) rotate(2deg); }
+    100% { transform: translateY(-20vh) translateX(0px) rotate(0deg); }
+  }
   @keyframes float-blimp {
     0% { transform: translateX(110vw) translateY(0px); }
     50% { transform: translateX(50vw) translateY(-20px); }
@@ -315,6 +320,32 @@ export default function CourseOrNothing() {
             <polygon points="270,52 285,10 275,52" fill="#39ff14"/>
             <polygon points="270,52 285,94 275,52" fill="#39ff14"/>
             <text x="145" y="58" fontFamily="monospace" fontSize="14" fontWeight="bold" fill="#000" textAnchor="middle">{blimpOptions[blimpIdx]}</text>
+          </svg>
+        </div>
+        <div style={{ position: "fixed", bottom: 0, right: "8%", zIndex: 1, pointerEvents: "none", animation: "float-probe 50s linear infinite", opacity: 0.3 }}>
+          <svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Main body */}
+            <rect x="28" y="25" width="24" height="22" rx="3" fill="#39ff14"/>
+            {/* Top dome */}
+            <ellipse cx="40" cy="25" rx="12" ry="8" fill="#39ff14"/>
+            {/* Antenna */}
+            <line x1="40" y1="17" x2="40" y2="5" stroke="#39ff14" strokeWidth="2"/>
+            <circle cx="40" cy="4" r="3" fill="#39ff14"/>
+            {/* Side panels */}
+            <rect x="10" y="28" width="18" height="10" rx="2" fill="#39ff14"/>
+            <rect x="52" y="28" width="18" height="10" rx="2" fill="#39ff14"/>
+            {/* Legs */}
+            <line x1="30" y1="47" x2="18" y2="70" stroke="#39ff14" strokeWidth="2"/>
+            <line x1="50" y1="47" x2="62" y2="70" stroke="#39ff14" strokeWidth="2"/>
+            <line x1="35" y1="47" x2="28" y2="70" stroke="#39ff14" strokeWidth="2"/>
+            <line x1="45" y1="47" x2="52" y2="70" stroke="#39ff14" strokeWidth="2"/>
+            {/* Foot pads */}
+            <ellipse cx="18" cy="72" rx="6" ry="3" fill="#39ff14"/>
+            <ellipse cx="62" cy="72" rx="6" ry="3" fill="#39ff14"/>
+            <ellipse cx="28" cy="72" rx="5" ry="3" fill="#39ff14"/>
+            <ellipse cx="52" cy="72" rx="5" ry="3" fill="#39ff14"/>
+            {/* Engine nozzle */}
+            <polygon points="35,69 45,69 48,80 32,80" fill="#39ff14"/>
           </svg>
         </div>
         <div style={{ position: "fixed", top: 0, left: 0, right: 0, height: "2px", background: "rgba(57,255,20,0.08)", animation: "scanline 6s linear infinite", pointerEvents: "none", zIndex: 998 }} />
