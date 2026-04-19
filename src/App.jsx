@@ -401,7 +401,7 @@ export default function CourseOrNothing() {
             {result && (
               <div style={{ animation: "fadeUp 0.4s ease" }}>
                 <div style={{ border: `1px solid ${C.green}`, marginBottom: "1px", padding: "32px", background: C.greenFaint }}>
-                  <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ COURSE IDENTIFIED</div>
+                  <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ HERE IS YOUR COURSE</div>
                   <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(28px, 6vw, 48px)", lineHeight: 1.05, color: C.white, letterSpacing: "0.03em", marginBottom: "14px" }}>{result.courseTitle}</div>
                   <div style={{ fontSize: "13px", color: C.green, letterSpacing: "0.1em", marginBottom: "20px", textTransform: "uppercase" }}>{result.tagline}</div>
                   <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "52px", color: C.green, letterSpacing: "0.05em", lineHeight: 1 }}>{result.price}</div>
