@@ -42,9 +42,9 @@ const glitchKeyframes = `
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
   @keyframes float-probe {
-    0% { transform: translateY(80vh) translateX(0px) rotate(0deg); }
-    50% { transform: translateY(50vh) translateX(8px) rotate(2deg); }
-    100% { transform: translateY(-20vh) translateX(0px) rotate(0deg); }
+    0% { transform: translateY(100vh) translateX(0px) rotate(0deg); }
+    50% { transform: translateY(40vh) translateX(8px) rotate(2deg); }
+    100% { transform: translateY(-120vh) translateX(0px) rotate(0deg); }
   }
   @keyframes float-blimp {
     0% { transform: translateX(110vw) translateY(0px); }
@@ -322,7 +322,7 @@ export default function CourseOrNothing() {
             <text x="145" y="58" fontFamily="monospace" fontSize="14" fontWeight="bold" fill="#000" textAnchor="middle">{blimpOptions[blimpIdx]}</text>
           </svg>
         </div>
-        <div style={{ position: "fixed", bottom: 0, right: "8%", zIndex: 1, pointerEvents: "none", animation: "float-probe 30s linear infinite", opacity: 0.5 }}>
+        <div style={{ position: "fixed", bottom: 0, right: "8%", zIndex: 1, pointerEvents: "none", animation: "float-probe 45s linear infinite", opacity: 0.5 }}>
           <svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* Main body */}
             <rect x="28" y="25" width="24" height="22" rx="3" fill="#39ff14"/>
