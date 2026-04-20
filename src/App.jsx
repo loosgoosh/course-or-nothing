@@ -312,6 +312,11 @@ export default function CourseOrNothing() {
           BUILT BY GUASCH LABS
         </a>
       </div>
+      <div style={{ marginBottom: "16px" }}>
+        <a href="https://www.producthunt.com/products/course-or-nothing?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-course-or-nothing" target="_blank" rel="noopener noreferrer">
+          <img alt="Course or Nothing on Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1128305&theme=dark&t=1776709376956" />
+        </a>
+      </div>
       <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "12px" }}>▶ JOIN THE CON COMMUNITY</div>
       <div style={{ display: "flex", gap: "16px" }}>
         <a href="https://instagram.com/courseornothing" target="_blank" rel="noopener noreferrer" style={{ color: C.green, textDecoration: "none" }}
