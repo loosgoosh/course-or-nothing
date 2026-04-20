@@ -482,6 +482,28 @@ export default function CourseOrNothing() {
                   )}
                 </div>
 
+                <div style={{ border: "1px solid #1f1f1f", borderTop: "none", background: "#050505" }}>
+                  <div style={{ padding: "10px 32px", borderBottom: "1px solid #1f1f1f" }}>
+                    <span style={{ color: "#39ff14", fontSize: "10px", letterSpacing: "0.3em" }}>▶ WHAT OUR STUDENTS SAY</span>
+                  </div>
+                  <div style={{ padding: "24px 32px", display: "flex", flexDirection: "column", gap: "20px" }}>
+                    {[
+                      { quote: "I made $847,293 in 11 days after CON told me to sell a course on aggressive parallel parking. I now have 47 students and a waiting list.", name: "Todd R.", location: "Omaha NE" },
+                      { quote: "I didn't think competitive napping was a skill. CON disagreed. $2.1M later, I haven't been awake since Tuesday.", name: "Derek K.", location: "Phoenix AZ" },
+                      { quote: "CON identified my skill as knowing where every bathroom is in a 5 mile radius. I now run a $40,000/month membership community.", name: "Jennifer M.", location: "Bakersfield CA" },
+                      { quote: "I was just a guy who could fold a fitted sheet perfectly. CON saw something I didn't. My course has 12,000 students.", name: "Marcus T.", location: "Tulsa OK" },
+                      { quote: "My course on avoiding eye contact in elevators did $380,000 in its first launch. CON saw the vision.", name: "Patricia W.", location: "Cleveland OH" },
+                      { quote: "I sold a course on blasting peptides at work. $94,000 in 3 weeks. All skills are monetizable.", name: "Kyle B.", location: "Sacramento CA" },
+                      { quote: "CON told me my skill was surviving family dinners. I turned it into a $197 course. Sold 4,000 copies. My family still doesn't know.", name: "Sandra L.", location: "Tampa FL" },
+                      { quote: "I make $23,000 a month teaching people how to LARP in Miami. CON identified it. I just showed up.", name: "Raymond F.", location: "Miami FL" },
+                    ].map((t, i) => (
+                      <div key={i} style={{ borderLeft: "2px solid #39ff14", paddingLeft: "16px" }}>
+                        <div style={{ color: "#888888", fontSize: "12px", lineHeight: 1.7, letterSpacing: "0.04em", fontStyle: "italic", marginBottom: "8px" }}>"{t.quote}"</div>
+                        <div style={{ color: "#39ff14", fontSize: "10px", letterSpacing: "0.2em" }}>— {t.name}, {t.location}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
                 <div style={{ border: `1px solid #ff0000`, borderTop: "none", background: "#0d0000" }}>
                   <div style={{ borderBottom: "1px solid #330000", padding: "10px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <span style={{ color: "#ff4444", fontSize: "10px", letterSpacing: "0.3em" }}>▶ NOW AVAILABLE</span>
