@@ -1,4 +1,3 @@
-cat > /mnt/user-data/outputs/App.jsx << 'ENDOFFILE'
 import { useState, useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -284,7 +283,8 @@ export default function CourseOrNothing() {
     await fetch("https://formspree.io/f/mbdqyyly", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: emailValue, course: result?.courseTitle }) });
     setEmailSent(true); setEmailValue("");
   };
-const paid = isPaid();
+
+  const paid = isPaid();
 
   const TopBar = () => (
     <div style={{ borderBottom: `1px solid ${C.border}`, padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", animation: "flicker 8s infinite" }}>
@@ -427,7 +427,8 @@ const paid = isPaid();
                   <div style={{ fontSize: "13px", color: C.green, letterSpacing: "0.1em", marginBottom: "20px", textTransform: "uppercase" }}>{result.tagline}</div>
                   <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "52px", color: C.green, letterSpacing: "0.05em", lineHeight: 1 }}>{result.price}</div>
                 </div>
- <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px" }}>
+
+                <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px" }}>
                   <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ CURRICULUM</div>
                   {result.modules?.map((mod, i) => (
                     <div key={i} style={{ display: "flex", gap: "14px", marginBottom: "10px", fontSize: "13px", color: C.gray, lineHeight: 1.6, letterSpacing: "0.05em" }}>
@@ -544,5 +545,3 @@ const paid = isPaid();
     </>
   );
 }
-ENDOFFILE
-echo "Done"
