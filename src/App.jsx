@@ -1,3 +1,4 @@
+cat > /mnt/user-data/outputs/App.jsx << 'ENDOFFILE'
 import { useState, useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -25,6 +26,17 @@ const getUsesLeft = () => {
   return Math.max(0, FREE_LIMIT - count);
 };
 
+const TESTIMONIALS = [
+  { quote: "I made $847,293 in 11 days after CON told me to sell a course on aggressive parallel parking. I now have 47 students and a waiting list.", name: "Todd R.", location: "Omaha NE" },
+  { quote: "I didn't think competitive napping was a skill. CON disagreed. $2.1M later, I haven't been awake since Tuesday.", name: "Derek K.", location: "Phoenix AZ" },
+  { quote: "CON identified my skill as knowing where every bathroom is in a 5 mile radius. I now run a $40,000/month membership community.", name: "Jennifer M.", location: "Bakersfield CA" },
+  { quote: "I was just a guy who could fold a fitted sheet perfectly. CON saw something I didn't. My course has 12,000 students.", name: "Marcus T.", location: "Tulsa OK" },
+  { quote: "My course on avoiding eye contact in elevators did $380,000 in its first launch. CON saw the vision.", name: "Patricia W.", location: "Cleveland OH" },
+  { quote: "I sold a course on blasting peptides at work. $94,000 in 3 weeks. All skills are monetizable.", name: "Kyle B.", location: "Sacramento CA" },
+  { quote: "CON told me my skill was surviving family dinners. I turned it into a $197 course. Sold 4,000 copies. My family still doesn't know.", name: "Sandra L.", location: "Tampa FL" },
+  { quote: "I make $23,000 a month teaching people how to LARP in Miami. CON identified it. I just showed up.", name: "Raymond F.", location: "Miami FL" },
+];
+
 const glitchKeyframes = `
   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&display=swap');
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
@@ -40,7 +52,6 @@ const glitchKeyframes = `
   @keyframes pulse-green { 0%, 100% { box-shadow: 0 0 0px #39ff14; } 50% { box-shadow: 0 0 12px #39ff14; } }
   @keyframes modalIn { from { opacity: 0; transform: scale(0.96) translateY(12px); } to { opacity: 1; transform: scale(1) translateY(0); } }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-
   @keyframes float-probe {
     0% { transform: translateY(100vh) translateX(0px) rotate(0deg); }
     50% { transform: translateY(40vh) translateX(8px) rotate(2deg); }
@@ -115,13 +126,8 @@ function ShopPage() {
   const submit = async () => {
     if (!email.trim()) return;
     setLoading(true);
-    await fetch(SHOP_FORMSPREE, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, source: "CON Shop Waitlist" }),
-    });
-    setSent(true);
-    setLoading(false);
+    await fetch(SHOP_FORMSPREE, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, source: "CON Shop Waitlist" }) });
+    setSent(true); setLoading(false);
   };
 
   const items = [
@@ -139,12 +145,9 @@ function ShopPage() {
           COMING<br /><span style={{ color: C.green }}>SOON</span>
         </h1>
         <p style={{ color: C.gray, fontSize: "13px", letterSpacing: "0.1em", lineHeight: 1.8, textTransform: "uppercase" }}>
-          The merch is coming.<br />
-          <span style={{ color: C.green }}>Drop your email to be first in line.</span>
+          The merch is coming.<br /><span style={{ color: C.green }}>Drop your email to be first in line.</span>
         </p>
       </div>
-
-      {/* Email capture */}
       <div style={{ border: `1px solid ${C.green}`, marginBottom: "48px", background: C.greenFaint }}>
         <div style={{ padding: "10px 24px", borderBottom: `1px solid ${C.greenDim}`, fontSize: "10px", color: C.green, letterSpacing: "0.3em" }}>▶ JOIN THE WAITLIST</div>
         <div style={{ padding: "24px" }}>
@@ -152,9 +155,7 @@ function ShopPage() {
             <div style={{ color: C.green, fontSize: "13px", letterSpacing: "0.2em", textTransform: "uppercase" }}>✓ YOU'RE ON THE LIST. WE'LL HIT YOU FIRST.</div>
           ) : (
             <div style={{ display: "flex", gap: "8px" }}>
-              <input type="email" value={email} onChange={e => setEmail(e.target.value)}
-                onKeyDown={e => e.key === "Enter" && submit()}
-                placeholder="YOUR EMAIL"
+              <input type="email" value={email} onChange={e => setEmail(e.target.value)} onKeyDown={e => e.key === "Enter" && submit()} placeholder="YOUR EMAIL"
                 style={{ flex: 1, padding: "14px 16px", background: "transparent", border: `1px solid ${C.greenDim}`, color: C.white, fontSize: "12px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace", outline: "none" }} />
               <button onClick={submit} disabled={loading} style={{ padding: "14px 24px", background: C.green, border: "none", color: C.black, fontSize: "12px", letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "'Share Tech Mono', monospace", cursor: "pointer", fontWeight: "700" }}>
                 {loading ? "..." : "JOIN"}
@@ -163,27 +164,62 @@ function ShopPage() {
           )}
         </div>
       </div>
-
-      {/* Product previews */}
       <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "20px" }}>▶ PREVIEW</div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px" }}>
         {items.map((item, i) => (
           <div key={i} style={{ border: `1px solid ${C.border}`, padding: "24px", background: i % 2 === 0 ? C.black : "#080808", position: "relative" }}>
-            <div style={{ position: "absolute", top: "12px", right: "12px", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.gray, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>
-              {item.tag}
-            </div>
+            <div style={{ position: "absolute", top: "12px", right: "12px", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.gray, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
             <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, letterSpacing: "0.03em", marginBottom: "8px", lineHeight: 1 }}>{item.name}</div>
             <div style={{ fontSize: "11px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase" }}>{item.desc}</div>
             <div style={{ marginTop: "16px", fontSize: "10px", color: "#333", letterSpacing: "0.2em" }}>PRICE TBD</div>
           </div>
         ))}
       </div>
-
       <div style={{ marginTop: "48px", padding: "20px 24px", border: `1px solid ${C.border}`, background: "#050505" }}>
         <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase", lineHeight: 1.8 }}>
           Questions? Hit us at{" "}
           <a href="mailto:CONsupport@guaschlabs.net" style={{ color: C.green, textDecoration: "none" }}>CONsupport@guaschlabs.net</a>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function ResultsPage() {
+  return (
+    <div style={{ maxWidth: "700px", margin: "0 auto", padding: "48px 24px 100px" }}>
+      <div style={{ marginBottom: "48px" }}>
+        <div style={{ fontSize: "11px", color: C.green, letterSpacing: "0.3em", marginBottom: "20px", textTransform: "uppercase" }}>▶ WALL OF RESULTS</div>
+        <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(52px, 14vw, 100px)", lineHeight: 0.9, letterSpacing: "0.02em", color: C.white, marginBottom: "24px" }}>
+          WHAT OUR<br /><span style={{ color: C.green }}>STUDENTS</span><br />SAY
+        </h1>
+        <div style={{ display: "flex", gap: "32px", marginBottom: "8px" }}>
+          <div>
+            <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: C.green, lineHeight: 1 }}>14,847</div>
+            <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase" }}>STUDENTS AND COUNTING</div>
+          </div>
+          <div>
+            <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: C.green, lineHeight: 1 }}>$2.4B</div>
+            <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase" }}>REVENUE GENERATED*</div>
+          </div>
+        </div>
+        <div style={{ fontSize: "9px", color: "#333", letterSpacing: "0.15em", marginBottom: "48px" }}>*APPROXIMATE. RESULTS MAY VARY.</div>
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
+        {TESTIMONIALS.map((t, i) => (
+          <div key={i} style={{ border: `1px solid ${C.border}`, padding: "28px 32px", background: i % 2 === 0 ? C.black : "#080808" }}>
+            <div style={{ borderLeft: `2px solid ${C.green}`, paddingLeft: "16px" }}>
+              <div style={{ color: C.white, fontSize: "13px", lineHeight: 1.8, letterSpacing: "0.04em", fontStyle: "italic", marginBottom: "12px" }}>"{t.quote}"</div>
+              <div style={{ color: C.green, fontSize: "10px", letterSpacing: "0.2em" }}>— {t.name}, {t.location}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ marginTop: "48px", border: `1px solid ${C.green}`, padding: "28px 32px", background: C.greenFaint, textAlign: "center" }}>
+        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, marginBottom: "8px" }}>YOUR RESULT COULD BE NEXT.</div>
+        <div style={{ fontSize: "11px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase" }}>ALL SKILLS ARE MONETIZABLE.</div>
       </div>
     </div>
   );
@@ -207,10 +243,7 @@ export default function CourseOrNothing() {
 
   useEffect(() => { const t = setInterval(() => setTick((v) => !v), 530); return () => clearInterval(t); }, []);
   useEffect(() => { setUsesLeft(getUsesLeft()); }, []);
-  useEffect(() => {
-    const t = setInterval(() => setBlimpIdx(i => (i + 1) % 3), 60000);
-    return () => clearInterval(t);
-  }, []);
+  useEffect(() => { const t = setInterval(() => setBlimpIdx(i => (i + 1) % 3), 60000); return () => clearInterval(t); }, []);
 
   const isPaid = () => !!localStorage.getItem(STORAGE_PAID_KEY);
   const incrementUse = () => {
@@ -251,8 +284,7 @@ export default function CourseOrNothing() {
     await fetch("https://formspree.io/f/mbdqyyly", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: emailValue, course: result?.courseTitle }) });
     setEmailSent(true); setEmailValue("");
   };
-
-  const paid = isPaid();
+const paid = isPaid();
 
   const TopBar = () => (
     <div style={{ borderBottom: `1px solid ${C.border}`, padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", animation: "flicker 8s infinite" }}>
@@ -260,9 +292,8 @@ export default function CourseOrNothing() {
         COURSEORNOTHING.COM
       </button>
       <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-        <button onClick={() => setPage("shop")} style={{ background: "none", border: "none", cursor: "pointer", color: C.green, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace", textTransform: "uppercase" }}>
-          SHOP
-        </button>
+        <button onClick={() => setPage("results")} style={{ background: "none", border: "none", cursor: "pointer", color: C.green, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace" }}>RESULTS</button>
+        <button onClick={() => setPage("shop")} style={{ background: "none", border: "none", cursor: "pointer", color: C.green, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace" }}>SHOP</button>
         {page === "home" && (
           <span style={{ color: paid ? C.green : C.gray, fontSize: "11px", letterSpacing: "0.1em" }}>
             {paid ? "✓ UNLIMITED" : `${usesLeft} FREE ${usesLeft === 1 ? "USE" : "USES"} LEFT`}
@@ -295,7 +326,7 @@ export default function CourseOrNothing() {
           onMouseEnter={e => e.currentTarget.style.color = C.white} onMouseLeave={e => e.currentTarget.style.color = C.green}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
         </a>
-      <a href="https://www.tiktok.com/@courseornothing" target="_blank" rel="noopener noreferrer" style={{ color: C.green, textDecoration: "none" }}
+        <a href="https://www.tiktok.com/@courseornothing" target="_blank" rel="noopener noreferrer" style={{ color: C.green, textDecoration: "none" }}
           onMouseEnter={e => e.currentTarget.style.color = C.white} onMouseLeave={e => e.currentTarget.style.color = C.green}>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/></svg>
         </a>
@@ -308,7 +339,6 @@ export default function CourseOrNothing() {
       <style>{glitchKeyframes}</style>
       {showPaywall && <PaywallModal onClose={() => setShowPaywall(false)} />}
       <div style={{ minHeight: "100vh", width: "100%", maxWidth: "100%", background: C.black, color: C.white, fontFamily: "'Share Tech Mono', monospace", position: "relative", overflowX: "hidden" }}>
-        
         <div style={{ position: "fixed", top: "15%", left: 0, right: 0, zIndex: 1, pointerEvents: "none", animation: "float-blimp 60s linear infinite", opacity: 0.35 }}>
           <svg width="320" height="120" viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="145" cy="52" rx="130" ry="42" fill="#39ff14"/>
@@ -324,27 +354,20 @@ export default function CourseOrNothing() {
         </div>
         <div style={{ position: "fixed", bottom: 0, right: "8%", zIndex: 1, pointerEvents: "none", animation: "float-probe 45s linear infinite", opacity: 0.5 }}>
           <svg width="80" height="100" viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Main body */}
             <rect x="28" y="25" width="24" height="22" rx="3" fill="#39ff14"/>
-            {/* Top dome */}
             <ellipse cx="40" cy="25" rx="12" ry="8" fill="#39ff14"/>
-            {/* Antenna */}
             <line x1="40" y1="17" x2="40" y2="5" stroke="#39ff14" strokeWidth="2"/>
             <circle cx="40" cy="4" r="3" fill="#39ff14"/>
-            {/* Side panels */}
             <rect x="10" y="28" width="18" height="10" rx="2" fill="#39ff14"/>
             <rect x="52" y="28" width="18" height="10" rx="2" fill="#39ff14"/>
-            {/* Legs */}
             <line x1="30" y1="47" x2="18" y2="70" stroke="#39ff14" strokeWidth="2"/>
             <line x1="50" y1="47" x2="62" y2="70" stroke="#39ff14" strokeWidth="2"/>
             <line x1="35" y1="47" x2="28" y2="70" stroke="#39ff14" strokeWidth="2"/>
             <line x1="45" y1="47" x2="52" y2="70" stroke="#39ff14" strokeWidth="2"/>
-            {/* Foot pads */}
             <ellipse cx="18" cy="72" rx="6" ry="3" fill="#39ff14"/>
             <ellipse cx="62" cy="72" rx="6" ry="3" fill="#39ff14"/>
             <ellipse cx="28" cy="72" rx="5" ry="3" fill="#39ff14"/>
             <ellipse cx="52" cy="72" rx="5" ry="3" fill="#39ff14"/>
-            {/* Engine nozzle */}
             <polygon points="35,69 45,69 48,80 32,80" fill="#39ff14"/>
           </svg>
         </div>
@@ -352,12 +375,9 @@ export default function CourseOrNothing() {
         <TopBar />
 
         {page === "shop" ? (
-          <>
-            <ShopPage />
-            <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 24px 80px" }}>
-              <Footer />
-            </div>
-          </>
+          <><ShopPage /><div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 24px 80px" }}><Footer /></div></>
+        ) : page === "results" ? (
+          <><ResultsPage /><div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 24px 80px" }}><Footer /></div></>
         ) : (
           <div style={{ maxWidth: "700px", margin: "0 auto", padding: "48px 24px 100px" }}>
             <div style={{ marginBottom: "56px" }}>
@@ -368,7 +388,7 @@ export default function CourseOrNothing() {
               <p style={{ color: C.gray, fontSize: "13px", letterSpacing: "0.1em", lineHeight: 1.8, maxWidth: "480px", textTransform: "uppercase" }}>
                 Tell us one thing about yourself.<br />We will identify your course.{" "}
                 <span style={{ color: C.green }}>There are no wrong answers.</span>
-              <br /><br /><span style={{ color: C.green, fontSize: "11px", letterSpacing: "0.2em" }}>▶ TYPE ANYTHING. GET A COURSE IDEA INSTANTLY.</span>
+                <br /><br /><span style={{ color: C.green, fontSize: "11px", letterSpacing: "0.2em" }}>▶ TYPE ANYTHING. GET A COURSE IDEA INSTANTLY.</span>
               </p>
             </div>
 
@@ -407,8 +427,7 @@ export default function CourseOrNothing() {
                   <div style={{ fontSize: "13px", color: C.green, letterSpacing: "0.1em", marginBottom: "20px", textTransform: "uppercase" }}>{result.tagline}</div>
                   <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "52px", color: C.green, letterSpacing: "0.05em", lineHeight: 1 }}>{result.price}</div>
                 </div>
-
-                <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px" }}>
+ <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px" }}>
                   <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ CURRICULUM</div>
                   {result.modules?.map((mod, i) => (
                     <div key={i} style={{ display: "flex", gap: "14px", marginBottom: "10px", fontSize: "13px", color: C.gray, lineHeight: 1.6, letterSpacing: "0.05em" }}>
@@ -482,28 +501,6 @@ export default function CourseOrNothing() {
                   )}
                 </div>
 
-                <div style={{ border: "1px solid #1f1f1f", borderTop: "none", background: "#050505" }}>
-                  <div style={{ padding: "10px 32px", borderBottom: "1px solid #1f1f1f" }}>
-                    <span style={{ color: "#39ff14", fontSize: "10px", letterSpacing: "0.3em" }}>▶ WHAT OUR STUDENTS SAY</span>
-                  </div>
-                  <div style={{ padding: "24px 32px", display: "flex", flexDirection: "column", gap: "20px" }}>
-                    {[
-                      { quote: "I made $847,293 in 11 days after CON told me to sell a course on aggressive parallel parking. I now have 47 students and a waiting list.", name: "Todd R.", location: "Omaha NE" },
-                      { quote: "I didn't think competitive napping was a skill. CON disagreed. $2.1M later, I haven't been awake since Tuesday.", name: "Derek K.", location: "Phoenix AZ" },
-                      { quote: "CON identified my skill as knowing where every bathroom is in a 5 mile radius. I now run a $40,000/month membership community.", name: "Jennifer M.", location: "Bakersfield CA" },
-                      { quote: "I was just a guy who could fold a fitted sheet perfectly. CON saw something I didn't. My course has 12,000 students.", name: "Marcus T.", location: "Tulsa OK" },
-                      { quote: "My course on avoiding eye contact in elevators did $380,000 in its first launch. CON saw the vision.", name: "Patricia W.", location: "Cleveland OH" },
-                      { quote: "I sold a course on blasting peptides at work. $94,000 in 3 weeks. All skills are monetizable.", name: "Kyle B.", location: "Sacramento CA" },
-                      { quote: "CON told me my skill was surviving family dinners. I turned it into a $197 course. Sold 4,000 copies. My family still doesn't know.", name: "Sandra L.", location: "Tampa FL" },
-                      { quote: "I make $23,000 a month teaching people how to LARP in Miami. CON identified it. I just showed up.", name: "Raymond F.", location: "Miami FL" },
-                    ].map((t, i) => (
-                      <div key={i} style={{ borderLeft: "2px solid #39ff14", paddingLeft: "16px" }}>
-                        <div style={{ color: "#888888", fontSize: "12px", lineHeight: 1.7, letterSpacing: "0.04em", fontStyle: "italic", marginBottom: "8px" }}>"{t.quote}"</div>
-                        <div style={{ color: "#39ff14", fontSize: "10px", letterSpacing: "0.2em" }}>— {t.name}, {t.location}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
                 <div style={{ border: `1px solid #ff0000`, borderTop: "none", background: "#0d0000" }}>
                   <div style={{ borderBottom: "1px solid #330000", padding: "10px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <span style={{ color: "#ff4444", fontSize: "10px", letterSpacing: "0.3em" }}>▶ NOW AVAILABLE</span>
@@ -539,7 +536,6 @@ export default function CourseOrNothing() {
                 </div>
               </div>
             )}
-
             <Footer />
           </div>
         )}
@@ -548,3 +544,5 @@ export default function CourseOrNothing() {
     </>
   );
 }
+ENDOFFILE
+echo "Done"
