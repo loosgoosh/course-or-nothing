@@ -429,7 +429,7 @@ export default function CourseOrNothing() {
 
                 {result.testimonial && (
                   <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px" }}>
-                    <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ STUDENT RESULTS</div>
+                    <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ WHAT OUR STUDENTS SAY</div>
                     <div style={{ borderLeft: `2px solid ${C.green}`, paddingLeft: "16px", color: C.gray, fontSize: "13px", lineHeight: 1.7, letterSpacing: "0.04em", fontStyle: "italic" }}>"{result.testimonial}"</div>
                   </div>
                 )}
