@@ -257,7 +257,7 @@ function LarpPage() {
             <div style={{ padding: "24px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <div style={{ flex: 1 }}>
                 <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, letterSpacing: "0.03em", lineHeight: 1, marginBottom: "4px" }}>{item.name}</div>
-                {item.brand && <div style={{ fontSize: "9px", color: C.green, letterSpacing: "0.3em", marginBottom: "8px", textTransform: "uppercase" }}>BY {item.brand}</div>}
+                {item.brand && <div style={{ fontSize: "12px", fontWeight: "700", color: C.green, letterSpacing: "0.2em", marginBottom: "8px", textTransform: "uppercase" }}>{item.brand}</div>}
                 <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.6 }}>{item.desc}</div>
                 <div style={{ marginTop: "10px", display: "inline-block", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.green, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
               </div>
