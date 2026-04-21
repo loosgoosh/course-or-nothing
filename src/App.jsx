@@ -287,11 +287,11 @@ export default function CourseOrNothing() {
   const paid = isPaid();
 
   const TopBar = () => (
-    <div style={{ borderBottom: `1px solid ${C.border}`, padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", animation: "flicker 8s infinite" }}>
+    <div style={{ borderBottom: `1px solid ${C.border}`, padding: "12px 16px", display: "flex", justifyContent: "space-between", alignItems: "center", animation: "flicker 8s infinite", flexWrap: "wrap", gap: "8px" }}>
       <button onClick={() => setPage("home")} style={{ background: "none", border: "none", cursor: "pointer", color: C.green, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace" }}>
         COURSEORNOTHING.COM
       </button>
-      <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
         <button onClick={() => setPage("results")} style={{ background: "none", border: "none", cursor: "pointer", color: C.green, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace" }}>RESULTS</button>
         <button onClick={() => setPage("shop")} style={{ background: "none", border: "none", cursor: "pointer", color: C.green, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace" }}>SHOP</button>
         {page === "home" && (
