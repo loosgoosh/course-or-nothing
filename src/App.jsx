@@ -238,7 +238,7 @@ function LarpPage() {
           THE LARP<br /><span style={{ color: C.green }}>STACK</span>
         </h1>
         <p style={{ color: C.gray, fontSize: "13px", letterSpacing: "0.1em", lineHeight: 1.8, textTransform: "uppercase" }}>
-          Look the part while you build.
+          Look the part while you build, or scale.
         </p>
       </div>
 
