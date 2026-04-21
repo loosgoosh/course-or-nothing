@@ -37,7 +37,7 @@ const TESTIMONIALS = [
 ];
 
 const LARP_ITEMS = [
-  { name: "AMEX CARD STICKERS", desc: "Turn any card into a Gold or Platinum. No application required.", tag: "COMING SOON", link: "#" },
+  { name: "METAL CARD COVERS", desc: "Turn any card into a Gold or Platinum. No application required.", tag: "LIVE", link: "https://www.goldwraps.com" },
   { name: "PEPTIDES", desc: "Look optimized. Feel optimized. Ship your course optimized.", tag: "COMING SOON", link: "#" },
   { name: "MAISON CHRONOS", desc: "Luxury watches. Look like you already made it.", tag: "LIVE", link: "https://www.tiktok.com/@maison_chronos_official/shop" },
   { name: "THE FULL LARP KIT", desc: "Everything you need to look like you already made it.", tag: "COMING SOON", link: "#" },
