@@ -174,7 +174,7 @@ function ShopPage() {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px" }}>
         {items.map((item, i) => (
           <div key={i} style={{ border: `1px solid ${C.border}`, padding: "24px", background: i % 2 === 0 ? C.black : "#080808", position: "relative" }}>
-            <div style={{ position: "absolute", top: "12px", right: "12px", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.gray, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
+            <div style={{ position: "absolute", top: "12px", right: "12px", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.green, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
             <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, letterSpacing: "0.03em", marginBottom: "8px", lineHeight: 1 }}>{item.name}</div>
             <div style={{ fontSize: "11px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase" }}>{item.desc}</div>
             <div style={{ marginTop: "16px", fontSize: "10px", color: "#333", letterSpacing: "0.2em" }}>PRICE TBD</div>
@@ -256,7 +256,7 @@ function LarpPage() {
                 <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, letterSpacing: "0.03em", lineHeight: 1 }}>{item.name}</div>
               </div>
               <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.6 }}>{item.desc}</div>
-              <div style={{ marginTop: "10px", display: "inline-block", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.gray, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
+              <div style={{ marginTop: "10px", display: "inline-block", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.green, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
             </div>
             <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", marginLeft: "24px" }}>
               <div style={{ border: `1px solid ${C.border}`, padding: "10px 16px", color: C.gray, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "'Share Tech Mono', monospace", cursor: "pointer", whiteSpace: "nowrap" }}
