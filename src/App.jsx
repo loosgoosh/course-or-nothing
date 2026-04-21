@@ -39,7 +39,7 @@ const TESTIMONIALS = [
 const LARP_ITEMS = [
   { name: "METAL CARD COVERS", brand: "GOLD WRAPS", desc: "Turn any card into a Gold or Platinum. No application required.", tag: "LIVE", link: "https://www.goldwraps.com", img: "https://i.imgur.com/yijewmd.jpeg" },
   { name: "PEPTIDES", brand: "", desc: "Look optimized. Feel optimized. Ship your course optimized.", tag: "COMING SOON", link: "#", img: null },
-  { name: "MAISON CHRONOS", brand: "MAISON CHRONOS", desc: "Luxury watches. Look like you already made it.", tag: "LIVE", link: "https://www.tiktok.com/@maison_chronos_official/shop", img: null },
+  { name: "MAISON CHRONOS", brand: "MAISON CHRONOS", desc: "Luxury watches. Look like you already made it.", tag: "LIVE", link: "https://www.tiktok.com/@maison_chronos_official/shop", img: "https://i.imgur.com/8gpM3Sd.jpeg" },
   { name: "THE FULL LARP KIT", brand: "", desc: "Everything you need to look like you already made it.", tag: "COMING SOON", link: "#", img: null },
 ];
 
