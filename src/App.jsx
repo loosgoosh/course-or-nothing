@@ -36,6 +36,13 @@ const TESTIMONIALS = [
   { quote: "I make $23,000 a month teaching people how to LARP in Miami. CON identified it. I just showed up.", name: "Raymond F.", location: "Miami FL" },
 ];
 
+const LARP_ITEMS = [
+  { name: "AMEX CARD STICKERS", desc: "Turn any card into a Gold or Platinum. No application required.", tag: "COMING SOON", link: "#" },
+  { name: "PEPTIDES", desc: "Look optimized. Feel optimized. Ship your course optimized.", tag: "COMING SOON", link: "#" },
+  { name: "LUXURY DUPES", desc: "Same energy. Different price point.", tag: "COMING SOON", link: "#" },
+  { name: "THE FULL LARP KIT", desc: "Everything you need to look like you already made it.", tag: "COMING SOON", link: "#" },
+];
+
 const glitchKeyframes = `
   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&display=swap');
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
@@ -204,7 +211,6 @@ function ResultsPage() {
         </div>
         <div style={{ fontSize: "9px", color: "#333", letterSpacing: "0.15em", marginBottom: "48px" }}>*APPROXIMATE. RESULTS MAY VARY.</div>
       </div>
-
       <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
         {TESTIMONIALS.map((t, i) => (
           <div key={i} style={{ border: `1px solid ${C.border}`, padding: "28px 32px", background: i % 2 === 0 ? C.black : "#080808" }}>
@@ -215,10 +221,60 @@ function ResultsPage() {
           </div>
         ))}
       </div>
-
       <div style={{ marginTop: "48px", border: `1px solid ${C.green}`, padding: "28px 32px", background: C.greenFaint, textAlign: "center" }}>
         <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, marginBottom: "8px" }}>YOUR RESULT COULD BE NEXT.</div>
         <div style={{ fontSize: "11px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase" }}>ALL SKILLS ARE MONETIZABLE.</div>
+      </div>
+    </div>
+  );
+}
+
+function LarpPage() {
+  return (
+    <div style={{ maxWidth: "700px", margin: "0 auto", padding: "48px 24px 100px" }}>
+      <div style={{ marginBottom: "48px" }}>
+        <div style={{ fontSize: "11px", color: C.green, letterSpacing: "0.3em", marginBottom: "20px", textTransform: "uppercase" }}>▶ CON PRESENTS</div>
+        <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(52px, 14vw, 100px)", lineHeight: 0.9, letterSpacing: "0.02em", color: C.white, marginBottom: "16px" }}>
+          THE LARP<br /><span style={{ color: C.green }}>STACK</span>
+        </h1>
+        <p style={{ color: C.gray, fontSize: "13px", letterSpacing: "0.1em", lineHeight: 1.8, textTransform: "uppercase" }}>
+          Look the part while you build.
+        </p>
+      </div>
+
+      <div style={{ border: `1px solid ${C.border}`, marginBottom: "32px", padding: "20px 24px", background: "#080808" }}>
+        <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase", lineHeight: 1.8 }}>
+          ▶ DISCLAIMER: ALL LINKS ARE AFFILIATE LINKS. CON CORP RECEIVES A CUT. WE ARE NOT ASHAMED.
+        </div>
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
+        {LARP_ITEMS.map((item, i) => (
+          <div key={i} style={{ border: `1px solid ${C.border}`, padding: "28px 32px", background: i % 2 === 0 ? C.black : "#080808", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ position: "relative", display: "inline-block", marginBottom: "8px" }}>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, letterSpacing: "0.03em", lineHeight: 1 }}>{item.name}</div>
+              </div>
+              <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.6 }}>{item.desc}</div>
+              <div style={{ marginTop: "10px", display: "inline-block", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.gray, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
+            </div>
+            <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", marginLeft: "24px" }}>
+              <div style={{ border: `1px solid ${C.border}`, padding: "10px 16px", color: C.gray, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "'Share Tech Mono', monospace", cursor: "pointer", whiteSpace: "nowrap" }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = C.green; e.currentTarget.style.color = C.green; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.color = C.gray; }}>
+                GET IT →
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <div style={{ marginTop: "48px", border: `1px solid ${C.green}`, padding: "28px 32px", background: C.greenFaint }}>
+        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "24px", color: C.white, marginBottom: "8px" }}>HAVE A PRODUCT THAT BELONGS HERE?</div>
+        <div style={{ fontSize: "11px", color: C.gray, letterSpacing: "0.15em", textTransform: "uppercase", lineHeight: 1.8 }}>
+          Reach out at{" "}
+          <a href="mailto:CONsupport@guaschlabs.net" style={{ color: C.green, textDecoration: "none" }}>CONsupport@guaschlabs.net</a>
+        </div>
       </div>
     </div>
   );
@@ -292,6 +348,7 @@ export default function CourseOrNothing() {
         COURSEORNOTHING.COM
       </button>
       <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+        <button onClick={() => setPage("larp")} style={{ background: "none", border: "none", cursor: "pointer", color: C.green, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace" }}>LARP</button>
         <button onClick={() => setPage("results")} style={{ background: "none", border: "none", cursor: "pointer", color: C.green, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace" }}>RESULTS</button>
         <button onClick={() => setPage("shop")} style={{ background: "none", border: "none", cursor: "pointer", color: C.green, fontSize: "11px", letterSpacing: "0.2em", fontFamily: "'Share Tech Mono', monospace" }}>SHOP</button>
         {page === "home" && (
@@ -383,6 +440,8 @@ export default function CourseOrNothing() {
           <><ShopPage /><div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 24px 80px" }}><Footer /></div></>
         ) : page === "results" ? (
           <><ResultsPage /><div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 24px 80px" }}><Footer /></div></>
+        ) : page === "larp" ? (
+          <><LarpPage /><div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 24px 80px" }}><Footer /></div></>
         ) : (
           <div style={{ maxWidth: "700px", margin: "0 auto", padding: "48px 24px 100px" }}>
             <div style={{ marginBottom: "56px" }}>
