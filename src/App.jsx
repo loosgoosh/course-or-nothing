@@ -37,10 +37,10 @@ const TESTIMONIALS = [
 ];
 
 const LARP_ITEMS = [
-  { name: "METAL CARD COVERS", desc: "Turn any card into a Gold or Platinum. No application required.", tag: "LIVE", link: "https://www.goldwraps.com" },
-  { name: "PEPTIDES", desc: "Look optimized. Feel optimized. Ship your course optimized.", tag: "COMING SOON", link: "#" },
-  { name: "MAISON CHRONOS", desc: "Luxury watches. Look like you already made it.", tag: "LIVE", link: "https://www.tiktok.com/@maison_chronos_official/shop" },
-  { name: "THE FULL LARP KIT", desc: "Everything you need to look like you already made it.", tag: "COMING SOON", link: "#" },
+  { name: "METAL CARD COVERS", brand: "GOLD WRAPS", desc: "Turn any card into a Gold or Platinum. No application required.", tag: "LIVE", link: "https://www.goldwraps.com", img: "https://i.imgur.com/yijewmd.jpeg" },
+  { name: "PEPTIDES", brand: "", desc: "Look optimized. Feel optimized. Ship your course optimized.", tag: "COMING SOON", link: "#", img: null },
+  { name: "MAISON CHRONOS", brand: "MAISON CHRONOS", desc: "Luxury watches. Look like you already made it.", tag: "LIVE", link: "https://www.tiktok.com/@maison_chronos_official/shop", img: null },
+  { name: "THE FULL LARP KIT", brand: "", desc: "Everything you need to look like you already made it.", tag: "COMING SOON", link: "#", img: null },
 ];
 
 const glitchKeyframes = `
@@ -250,21 +250,25 @@ function LarpPage() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
         {LARP_ITEMS.map((item, i) => (
-          <div key={i} style={{ border: `1px solid ${C.border}`, padding: "28px 32px", background: i % 2 === 0 ? C.black : "#080808", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <div style={{ flex: 1 }}>
-              <div style={{ position: "relative", display: "inline-block", marginBottom: "8px" }}>
-                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, letterSpacing: "0.03em", lineHeight: 1 }}>{item.name}</div>
+          <div key={i} style={{ border: `1px solid ${C.border}`, background: i % 2 === 0 ? C.black : "#080808" }}>
+            {item.img && (
+              <img src={item.img} alt={item.name} style={{ width: "100%", maxHeight: "200px", objectFit: "cover", display: "block", borderBottom: `1px solid ${C.border}` }} />
+            )}
+            <div style={{ padding: "24px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, letterSpacing: "0.03em", lineHeight: 1, marginBottom: "4px" }}>{item.name}</div>
+                {item.brand && <div style={{ fontSize: "9px", color: C.green, letterSpacing: "0.3em", marginBottom: "8px", textTransform: "uppercase" }}>BY {item.brand}</div>}
+                <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.6 }}>{item.desc}</div>
+                <div style={{ marginTop: "10px", display: "inline-block", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.green, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
               </div>
-              <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.08em", textTransform: "uppercase", lineHeight: 1.6 }}>{item.desc}</div>
-              <div style={{ marginTop: "10px", display: "inline-block", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.green, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
+              <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", marginLeft: "24px" }}>
+                <div style={{ border: `1px solid ${C.border}`, padding: "10px 16px", color: C.gray, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "'Share Tech Mono', monospace", cursor: "pointer", whiteSpace: "nowrap" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = C.green; e.currentTarget.style.color = C.green; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.color = C.gray; }}>
+                  GET IT →
+                </div>
+              </a>
             </div>
-            <a href={item.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", marginLeft: "24px" }}>
-              <div style={{ border: `1px solid ${C.border}`, padding: "10px 16px", color: C.gray, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "'Share Tech Mono', monospace", cursor: "pointer", whiteSpace: "nowrap" }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = C.green; e.currentTarget.style.color = C.green; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = C.border; e.currentTarget.style.color = C.gray; }}>
-                GET IT →
-              </div>
-            </a>
           </div>
         ))}
       </div>
