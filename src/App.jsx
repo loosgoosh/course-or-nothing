@@ -5,7 +5,7 @@ const API_URL = "https://insurance-commission-tracker-production.up.railway.app/
 
 const STRIPE_MONTHLY = "https://buy.stripe.com/4gM8wQc548k3h2k6f6bZe08";
 const STRIPE_LIFETIME = "https://buy.stripe.com/5kQbJ20mm2ZJfYg0UMbZe09";
-const GUMROAD_COURSE = "https://guaschlabs.gumroad.com/l/ijqhs";
+const GUMROAD_COURSE = "https://courseornothing.gumroad.com/l/ijqhs";
 const SHOP_FORMSPREE = "https://formspree.io/f/mbdqyyly";
 
 const FREE_LIMIT = 3;
