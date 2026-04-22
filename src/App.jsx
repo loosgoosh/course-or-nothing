@@ -40,6 +40,7 @@ const LARP_ITEMS = [
   { name: "GOLD WRAPS", brand: "METAL CARD COVERS", desc: "Turn any card into a Gold or Platinum. No application required.", tag: "LIVE", link: "https://www.goldwraps.com", img: "https://i.imgur.com/yijewmd.jpeg" },
   { name: "MAISON CHRONOS", brand: "LUXURY WATCHES", desc: "Look like you already made it.", tag: "LIVE", link: "https://www.tiktok.com/@maison_chronos_official/shop", img: "https://i.imgur.com/8gpM3Sd.jpeg" },
   { name: "PEPTI AI", brand: "PEPTIDES", desc: "Find your optimal stack. Always consult before you buy.", tag: "LIVE", link: "https://www.peptiai.app/", img: null },
+  { name: "SYSTEME.IO", brand: "COURSE PLATFORM", desc: "Build and sell your course. Free to start.", tag: "LIVE", link: "https://systeme.io/?sa=sa0269547185a0bf09ddcbdceb517b59e2363e6d76", img: null },
   { name: "THE FULL LARP KIT", brand: "", desc: "Everything you need to look like you already made it.", tag: "COMING SOON", link: "#", img: null },
 ];
 
