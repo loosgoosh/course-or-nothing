@@ -188,6 +188,25 @@ function ShopPage() {
           <a href="mailto:CONsupport@guaschlabs.net" style={{ color: C.green, textDecoration: "none" }}>CONsupport@guaschlabs.net</a>
         </div>
       </div>
+      <div style={{ marginTop: "32px", padding: "20px 24px", border: `1px solid ${C.border}`, background: "#050505" }}>
+        <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "16px", fontFamily: "'Share Tech Mono', monospace" }}>▶ WE ACCEPT</div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
+          {[
+            { name: "VISA", bg: "#1a1f71", color: "#fff", w: 52 },
+            { name: "MC", bg: "#eb001b", color: "#fff", w: 44 },
+            { name: "AMEX", bg: "#007bc1", color: "#fff", w: 52 },
+            { name: "PAYPAL", bg: "#003087", color: "#fff", w: 60 },
+            { name: "VENMO", bg: "#008cff", color: "#fff", w: 60 },
+            { name: "G PAY", bg: "#fff", color: "#000", w: 52 },
+            { name: "APPLE PAY", bg: "#000", color: "#fff", w: 68, border: "1px solid #333" },
+            { name: "SHOP PAY", bg: "#5a31f4", color: "#fff", w: 64 },
+          ].map((p, i) => (
+            <div key={i} style={{ background: p.bg, border: p.border || "none", borderRadius: "4px", padding: "5px 10px", width: p.w, textAlign: "center", fontFamily: "'Share Tech Mono', monospace", fontSize: "9px", fontWeight: "700", color: p.color, letterSpacing: "0.05em", whiteSpace: "nowrap" }}>
+              {p.name}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
