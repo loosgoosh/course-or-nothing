@@ -44,6 +44,41 @@ const LARP_ITEMS = [
   { name: "THE FULL LARP KIT", brand: "", desc: "Everything you need to look like you already made it.", tag: "COMING SOON", link: "#", img: null },
 ];
 
+const PAYMENT_ICONS = [
+  {
+    name: "Visa",
+    svg: <svg viewBox="0 0 38 24" width="38" height="24"><rect width="38" height="24" rx="4" fill="#1a1f71"/><text x="19" y="16" textAnchor="middle" fill="#fff" fontFamily="Arial" fontWeight="bold" fontSize="11" letterSpacing="1">VISA</text></svg>
+  },
+  {
+    name: "Mastercard",
+    svg: <svg viewBox="0 0 38 24" width="38" height="24"><rect width="38" height="24" rx="4" fill="#252525"/><circle cx="15" cy="12" r="7" fill="#eb001b"/><circle cx="23" cy="12" r="7" fill="#f79e1b"/><path d="M19 7.2a7 7 0 010 9.6A7 7 0 0119 7.2z" fill="#ff5f00"/></svg>
+  },
+  {
+    name: "Amex",
+    svg: <svg viewBox="0 0 38 24" width="38" height="24"><rect width="38" height="24" rx="4" fill="#007bc1"/><text x="19" y="16" textAnchor="middle" fill="#fff" fontFamily="Arial" fontWeight="bold" fontSize="8" letterSpacing="0.5">AMERICAN EXPRESS</text></svg>
+  },
+  {
+    name: "PayPal",
+    svg: <svg viewBox="0 0 38 24" width="38" height="24"><rect width="38" height="24" rx="4" fill="#003087"/><text x="19" y="16" textAnchor="middle" fill="#fff" fontFamily="Arial" fontWeight="bold" fontSize="10">PayPal</text></svg>
+  },
+  {
+    name: "Venmo",
+    svg: <svg viewBox="0 0 38 24" width="38" height="24"><rect width="38" height="24" rx="4" fill="#008cff"/><text x="19" y="16" textAnchor="middle" fill="#fff" fontFamily="Arial" fontWeight="bold" fontSize="9">venmo</text></svg>
+  },
+  {
+    name: "Google Pay",
+    svg: <svg viewBox="0 0 38 24" width="38" height="24"><rect width="38" height="24" rx="4" fill="#fff" stroke="#e0e0e0" strokeWidth="1"/><text x="19" y="16" textAnchor="middle" fill="#333" fontFamily="Arial" fontWeight="bold" fontSize="8">G Pay</text></svg>
+  },
+  {
+    name: "Apple Pay",
+    svg: <svg viewBox="0 0 38 24" width="38" height="24"><rect width="38" height="24" rx="4" fill="#000"/><text x="19" y="16" textAnchor="middle" fill="#fff" fontFamily="Arial" fontWeight="bold" fontSize="8"> Pay</text></svg>
+  },
+  {
+    name: "Shop Pay",
+    svg: <svg viewBox="0 0 38 24" width="38" height="24"><rect width="38" height="24" rx="4" fill="#5a31f4"/><text x="19" y="16" textAnchor="middle" fill="#fff" fontFamily="Arial" fontWeight="bold" fontSize="8">Shop Pay</text></svg>
+  },
+];
+
 const glitchKeyframes = `
   @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&display=swap');
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
@@ -188,21 +223,12 @@ function ShopPage() {
           <a href="mailto:CONsupport@guaschlabs.net" style={{ color: C.green, textDecoration: "none" }}>CONsupport@guaschlabs.net</a>
         </div>
       </div>
-      <div style={{ marginTop: "32px", padding: "20px 24px", border: `1px solid ${C.border}`, background: "#050505" }}>
-        <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "16px", fontFamily: "'Share Tech Mono', monospace" }}>▶ WE ACCEPT</div>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", alignItems: "center" }}>
-          {[
-            { name: "VISA", bg: "#1a1f71", color: "#fff", w: 52 },
-            { name: "MC", bg: "#eb001b", color: "#fff", w: 44 },
-            { name: "AMEX", bg: "#007bc1", color: "#fff", w: 52 },
-            { name: "PAYPAL", bg: "#003087", color: "#fff", w: 60 },
-            { name: "VENMO", bg: "#008cff", color: "#fff", w: 60 },
-            { name: "G PAY", bg: "#fff", color: "#000", w: 52 },
-            { name: "APPLE PAY", bg: "#000", color: "#fff", w: 68, border: "1px solid #333" },
-            { name: "SHOP PAY", bg: "#5a31f4", color: "#fff", w: 64 },
-          ].map((p, i) => (
-            <div key={i} style={{ background: p.bg, border: p.border || "none", borderRadius: "4px", padding: "5px 10px", width: p.w, textAlign: "center", fontFamily: "'Share Tech Mono', monospace", fontSize: "9px", fontWeight: "700", color: p.color, letterSpacing: "0.05em", whiteSpace: "nowrap" }}>
-              {p.name}
+      <div style={{ marginTop: "16px", padding: "20px 24px", border: `1px solid ${C.border}`, background: "#050505" }}>
+        <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "16px" }}>▶ WE ACCEPT</div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
+          {PAYMENT_ICONS.map((p, i) => (
+            <div key={i} style={{ borderRadius: "4px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }} title={p.name}>
+              {p.svg}
             </div>
           ))}
         </div>
@@ -261,13 +287,11 @@ function LarpPage() {
           Look the part while you build, or scale.
         </p>
       </div>
-
       <div style={{ border: `1px solid ${C.border}`, marginBottom: "32px", padding: "20px 24px", background: "#080808" }}>
         <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase", lineHeight: 1.8 }}>
           ▶ DISCLAIMER: ALL LINKS ARE AFFILIATE LINKS. CON CORP RECEIVES A CUT. WE ARE NOT ASHAMED.
         </div>
       </div>
-
       <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
         {LARP_ITEMS.map((item, i) => (
           <div key={i} style={{ border: `1px solid ${C.border}`, background: i % 2 === 0 ? C.black : "#080808" }}>
@@ -292,7 +316,6 @@ function LarpPage() {
           </div>
         ))}
       </div>
-
       <div style={{ marginTop: "48px", border: `1px solid ${C.green}`, padding: "28px 32px", background: C.greenFaint }}>
         <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "24px", color: C.white, marginBottom: "8px" }}>HAVE A PRODUCT THAT BELONGS HERE?</div>
         <div style={{ fontSize: "11px", color: C.gray, letterSpacing: "0.15em", textTransform: "uppercase", lineHeight: 1.8 }}>
@@ -515,7 +538,6 @@ export default function CourseOrNothing() {
                   <div style={{ fontSize: "13px", color: C.green, letterSpacing: "0.1em", marginBottom: "20px", textTransform: "uppercase" }}>{result.tagline}</div>
                   <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "52px", color: C.green, letterSpacing: "0.05em", lineHeight: 1 }}>{result.price}</div>
                 </div>
-
                 <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px" }}>
                   <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ CURRICULUM</div>
                   {result.modules?.map((mod, i) => (
@@ -525,7 +547,6 @@ export default function CourseOrNothing() {
                     </div>
                   ))}
                 </div>
-
                 {result.bonuses && (
                   <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px", background: "#080808" }}>
                     <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ BONUSES (FREE)</div>
@@ -534,20 +555,17 @@ export default function CourseOrNothing() {
                     ))}
                   </div>
                 )}
-
                 {result.testimonial && (
                   <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px" }}>
                     <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ WHAT OUR STUDENTS SAY</div>
                     <div style={{ borderLeft: `2px solid ${C.green}`, paddingLeft: "16px", color: C.gray, fontSize: "13px", lineHeight: 1.7, letterSpacing: "0.04em", fontStyle: "italic" }}>"{result.testimonial}"</div>
                   </div>
                 )}
-
                 {result.urgency && (
                   <div style={{ border: `1px solid #ff0000`, borderTop: "none", marginBottom: "1px", padding: "14px 32px", background: "#0d0000" }}>
                     <span style={{ color: "#ff4444", fontSize: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>⚠ {result.urgency}</span>
                   </div>
                 )}
-
                 <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px", background: "#080808" }}>
                   <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ SHARE YOUR RESULTS</div>
                   <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
@@ -568,7 +586,6 @@ export default function CourseOrNothing() {
                     </button>
                   </div>
                 </div>
-
                 <div style={{ border: `1px solid ${C.border}`, borderTop: "none", padding: "24px 32px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
                   <button onClick={copyShare} style={{ flex: 1, padding: "14px", background: copied ? C.green : "transparent", border: `1px solid ${copied ? C.green : C.border}`, color: copied ? C.black : C.white, fontSize: "11px", letterSpacing: "0.25em", textTransform: "uppercase", fontFamily: "'Share Tech Mono', monospace", cursor: "pointer", transition: "all 0.15s" }}>
                     {copied ? "✓ COPIED" : "> COPY TO SHARE"}
@@ -577,7 +594,6 @@ export default function CourseOrNothing() {
                     TRY ANOTHER
                   </button>
                 </div>
-
                 <div style={{ border: `1px solid ${C.border}`, borderTop: "none", padding: "24px 32px", background: "#050505" }}>
                   <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ WANT TO ACTUALLY MAKE THIS A REALITY?</div>
                   {emailSent ? (
@@ -589,7 +605,6 @@ export default function CourseOrNothing() {
                     </div>
                   )}
                 </div>
-
                 <div style={{ border: `1px solid #ff0000`, borderTop: "none", background: "#0d0000" }}>
                   <div style={{ borderBottom: "1px solid #330000", padding: "10px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <span style={{ color: "#ff4444", fontSize: "10px", letterSpacing: "0.3em" }}>▶ NOW AVAILABLE</span>
