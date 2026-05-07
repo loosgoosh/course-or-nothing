@@ -125,7 +125,7 @@ function PaywallModal({ onClose, reason }) {
         <div style={{ padding: "32px 24px" }}>
           {reason === "serious" ? (
             <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "38px", lineHeight: 1, color: C.white, marginBottom: "12px", letterSpacing: "0.02em" }}>
-              ALL JOKES ASIDE<br /><span style={{ color: C.green }}>IS PAID ONLY.</span>
+              GURU MODE<br /><span style={{ color: C.green }}>IS PAID ONLY.</span>
             </div>
           ) : (
             <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "42px", lineHeight: 1, color: C.white, marginBottom: "12px", letterSpacing: "0.02em" }}>
@@ -144,7 +144,7 @@ function PaywallModal({ onClose, reason }) {
               <div>
                 <div style={{ color: C.green, fontSize: "10px", letterSpacing: "0.3em", marginBottom: "6px" }}>MONTHLY ACCESS</div>
                 <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "32px", color: C.white, letterSpacing: "0.03em" }}>$1.99 / MONTH</div>
-                <div style={{ color: C.gray, fontSize: "10px", letterSpacing: "0.15em", marginTop: "4px" }}>CANCEL ANYTIME · INCLUDES ALL JOKES ASIDE</div>
+                <div style={{ color: C.gray, fontSize: "10px", letterSpacing: "0.15em", marginTop: "4px" }}>CANCEL ANYTIME · INCLUDES GURU MODE</div>
               </div>
               <span style={{ color: C.green, fontSize: "20px" }}>→</span>
             </div>
@@ -156,7 +156,7 @@ function PaywallModal({ onClose, reason }) {
               <div>
                 <div style={{ color: C.gray, fontSize: "10px", letterSpacing: "0.3em", marginBottom: "6px" }}>LIFETIME ACCESS ★ BEST VALUE</div>
                 <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "32px", color: C.white, letterSpacing: "0.03em" }}>$20 ONE TIME</div>
-                <div style={{ color: C.gray, fontSize: "10px", letterSpacing: "0.15em", marginTop: "4px" }}>PAY ONCE. USE FOREVER. INCLUDES ALL JOKES ASIDE.</div>
+                <div style={{ color: C.gray, fontSize: "10px", letterSpacing: "0.15em", marginTop: "4px" }}>PAY ONCE. USE FOREVER. INCLUDES GURU MODE.</div>
               </div>
               <span style={{ color: C.gray, fontSize: "20px" }}>→</span>
             </div>
@@ -177,7 +177,7 @@ function SeriousModeResult({ result, onReset }) {
     <div style={{ animation: "serious-in 0.4s ease", background: S.bg, border: `1px solid ${S.lightBorder}`, marginBottom: "24px" }}>
       {/* Header bar */}
       <div style={{ background: S.black, padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ color: C.green, fontSize: "10px", letterSpacing: "0.3em", fontFamily: "'Share Tech Mono', monospace" }}>▶ ALL JOKES ASIDE // REAL BLUEPRINT</span>
+        <span style={{ color: C.green, fontSize: "10px", letterSpacing: "0.3em", fontFamily: "'Share Tech Mono', monospace" }}>▶ GURU MODE // REAL BLUEPRINT</span>
         <span style={{ color: "#555", fontSize: "10px", fontFamily: "'Share Tech Mono', monospace", letterSpacing: "0.2em" }}>PAID</span>
       </div>
 
@@ -613,12 +613,12 @@ export default function CourseOrNothing() {
               </p>
             </div>
 
-            {/* ALL JOKES ASIDE TOGGLE */}
+            {/* GURU MODE TOGGLE */}
             <div style={{ marginBottom: "16px", border: `1px solid ${paid && seriousMode ? C.white : C.border}`, padding: "14px 20px", display: "flex", justifyContent: "space-between", alignItems: "center", background: paid && seriousMode ? "#0a0a0a" : "transparent", transition: "all 0.2s", cursor: "pointer" }}
               onClick={handleSeriousToggle}>
               <div>
                 <div style={{ fontSize: "11px", color: paid && seriousMode ? C.white : C.gray, letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "3px", transition: "color 0.2s" }}>
-                  ALL JOKES ASIDE {!paid && <span style={{ color: "#444", marginLeft: "8px" }}>// PAID</span>}
+                  GURU MODE {!paid && <span style={{ color: "#444", marginLeft: "8px" }}>// PAID</span>}
                 </div>
                 <div style={{ fontSize: "9px", color: "#444", letterSpacing: "0.15em" }}>
                   {paid ? (seriousMode ? "REAL BLUEPRINT MODE — ON" : "REAL BLUEPRINT MODE — OFF") : "UNLOCK WITH MONTHLY OR LIFETIME"}
