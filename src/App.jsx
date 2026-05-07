@@ -174,71 +174,62 @@ function SeriousModeResult({ result, onReset }) {
   const copy = () => { navigator.clipboard.writeText(shareText); setCopied(true); setTimeout(() => setCopied(false), 2000); };
 
   return (
-    <div style={{ animation: "serious-in 0.4s ease", background: S.bg, border: `1px solid ${S.lightBorder}`, marginBottom: "24px" }}>
-      {/* Header bar */}
-      <div style={{ background: S.black, padding: "12px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <span style={{ color: C.green, fontSize: "10px", letterSpacing: "0.3em", fontFamily: "'Share Tech Mono', monospace" }}>▶ GURU MODE // REAL BLUEPRINT</span>
-        <span style={{ color: "#555", fontSize: "10px", fontFamily: "'Share Tech Mono', monospace", letterSpacing: "0.2em" }}>PAID</span>
+    <div style={{ animation: "fadeUp 0.4s ease" }}>
+      <div style={{ border: `1px solid ${C.green}`, marginBottom: "1px", padding: "32px", background: C.greenFaint }}>
+        <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ GURU MODE // REAL BLUEPRINT</div>
+        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(28px, 6vw, 48px)", lineHeight: 1.05, color: C.white, letterSpacing: "0.03em", marginBottom: "14px" }}>{result.courseTitle}</div>
+        <div style={{ fontSize: "13px", color: C.green, letterSpacing: "0.1em", marginBottom: "20px", textTransform: "uppercase" }}>{result.tagline}</div>
+        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "52px", color: C.green, letterSpacing: "0.05em", lineHeight: 1 }}>{result.price}</div>
       </div>
-
-      <div style={{ padding: "32px" }}>
-        {/* Title */}
-        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(28px, 6vw, 52px)", color: S.text, lineHeight: 1.05, letterSpacing: "0.02em", marginBottom: "8px" }}>
-          {result.courseTitle}
+      {result.targetAudience && (
+        <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px", background: "#080808" }}>
+          <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ TARGET AUDIENCE</div>
+          <div style={{ fontSize: "13px", color: C.gray, lineHeight: 1.7, letterSpacing: "0.04em" }}>{result.targetAudience}</div>
         </div>
-        <div style={{ fontSize: "13px", color: S.gray, letterSpacing: "0.05em", marginBottom: "8px", textTransform: "uppercase" }}>{result.tagline}</div>
-        <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: S.black, letterSpacing: "0.05em", lineHeight: 1, marginBottom: "32px", borderBottom: `2px solid ${S.black}`, paddingBottom: "20px" }}>{result.price}</div>
-
-        {/* Target Audience */}
-        {result.targetAudience && (
-          <div style={{ marginBottom: "24px" }}>
-            <div style={{ fontSize: "10px", letterSpacing: "0.3em", color: S.gray, textTransform: "uppercase", marginBottom: "10px", fontFamily: "'Share Tech Mono', monospace" }}>TARGET AUDIENCE</div>
-            <div style={{ fontSize: "13px", color: S.text, lineHeight: 1.7, background: S.white, padding: "16px", border: `1px solid ${S.lightBorder}` }}>{result.targetAudience}</div>
-          </div>
-        )}
-
-        {/* Curriculum */}
-        {result.modules && (
-          <div style={{ marginBottom: "24px" }}>
-            <div style={{ fontSize: "10px", letterSpacing: "0.3em", color: S.gray, textTransform: "uppercase", marginBottom: "10px", fontFamily: "'Share Tech Mono', monospace" }}>CURRICULUM</div>
-            {result.modules.map((mod, i) => (
-              <div key={i} style={{ display: "flex", gap: "16px", padding: "12px 16px", background: i % 2 === 0 ? S.white : S.lightBg, borderBottom: `1px solid ${S.lightBorder}` }}>
-                <span style={{ fontSize: "11px", color: S.gray, fontFamily: "'Share Tech Mono', monospace", flexShrink: 0, paddingTop: "1px" }}>{String(i + 1).padStart(2, "0")}</span>
-                <span style={{ fontSize: "13px", color: S.text, lineHeight: 1.5 }}>{mod.replace(/^Module \d+:\s*/i, "")}</span>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Launch Plan */}
-        {result.launchPlan && (
-          <div style={{ marginBottom: "24px" }}>
-            <div style={{ fontSize: "10px", letterSpacing: "0.3em", color: S.gray, textTransform: "uppercase", marginBottom: "10px", fontFamily: "'Share Tech Mono', monospace" }}>LAUNCH PLAN</div>
-            <div style={{ fontSize: "13px", color: S.text, lineHeight: 1.7, background: S.white, padding: "16px", border: `1px solid ${S.lightBorder}` }}>{result.launchPlan}</div>
-          </div>
-        )}
-
-        {/* Bonuses */}
-        {result.bonuses && (
-          <div style={{ marginBottom: "24px" }}>
-            <div style={{ fontSize: "10px", letterSpacing: "0.3em", color: S.gray, textTransform: "uppercase", marginBottom: "10px", fontFamily: "'Share Tech Mono', monospace" }}>BONUSES</div>
-            {result.bonuses.map((b, i) => (
-              <div key={i} style={{ fontSize: "13px", color: S.text, padding: "10px 16px", background: S.white, borderBottom: `1px solid ${S.lightBorder}`, display: "flex", gap: "12px" }}>
-                <span style={{ color: S.black, fontWeight: "bold" }}>+</span> {b}
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Actions */}
-        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "8px" }}>
-          <button onClick={copy} style={{ flex: 1, padding: "14px", background: copied ? S.black : S.white, border: `1px solid ${S.black}`, color: copied ? S.white : S.black, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "'Share Tech Mono', monospace", cursor: "pointer", transition: "all 0.15s" }}>
-            {copied ? "✓ COPIED" : "COPY TO SHARE"}
-          </button>
-          <button onClick={onReset} style={{ flex: 1, padding: "14px", background: "transparent", border: `1px solid ${S.lightBorder}`, color: S.gray, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", fontFamily: "'Share Tech Mono', monospace", cursor: "pointer" }}>
-            TRY ANOTHER
-          </button>
+      )}
+      {result.modules && (
+        <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px" }}>
+          <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ CURRICULUM</div>
+          {result.modules.map((mod, i) => (
+            <div key={i} style={{ display: "flex", gap: "14px", marginBottom: "10px", fontSize: "13px", color: C.gray, lineHeight: 1.6, letterSpacing: "0.05em" }}>
+              <span style={{ color: C.green, flexShrink: 0 }}>{String(i + 1).padStart(2, "0")}</span>
+              <span>{mod.replace(/^Module \d+:\s*/i, "")}</span>
+            </div>
+          ))}
         </div>
+      )}
+      {result.bonuses && (
+        <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px", background: "#080808" }}>
+          <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ BONUSES</div>
+          {result.bonuses.map((b, i) => (
+            <div key={i} style={{ fontSize: "13px", color: C.gray, marginBottom: "8px", letterSpacing: "0.05em" }}><span style={{ color: C.green }}>+ </span>{b}</div>
+          ))}
+        </div>
+      )}
+      {result.launchPlan && (
+        <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px" }}>
+          <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ LAUNCH PLAN</div>
+          <div style={{ fontSize: "13px", color: C.gray, lineHeight: 1.7, letterSpacing: "0.04em" }}>{result.launchPlan}</div>
+        </div>
+      )}
+      {result.testimonial && (
+        <div style={{ border: `1px solid ${C.border}`, borderTop: "none", marginBottom: "1px", padding: "24px 32px", background: "#080808" }}>
+          <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "16px" }}>▶ STUDENT RESULT</div>
+          <div style={{ borderLeft: `2px solid ${C.green}`, paddingLeft: "16px", color: C.gray, fontSize: "13px", lineHeight: 1.7, letterSpacing: "0.04em", fontStyle: "italic" }}>"{result.testimonial}"</div>
+        </div>
+      )}
+      {result.urgency && (
+        <div style={{ border: `1px solid ${C.green}`, borderTop: "none", marginBottom: "1px", padding: "14px 32px", background: C.greenFaint }}>
+          <span style={{ color: C.green, fontSize: "12px", letterSpacing: "0.1em", textTransform: "uppercase" }}>▶ {result.urgency}</span>
+        </div>
+      )}
+      <div style={{ border: `1px solid ${C.border}`, borderTop: "none", padding: "24px 32px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
+        <button onClick={copy} style={{ flex: 1, padding: "14px", background: copied ? C.green : "transparent", border: `1px solid ${copied ? C.green : C.border}`, color: copied ? C.black : C.white, fontSize: "11px", letterSpacing: "0.25em", textTransform: "uppercase", fontFamily: "'Share Tech Mono', monospace", cursor: "pointer", transition: "all 0.15s" }}>
+          {copied ? "✓ COPIED" : "> COPY TO SHARE"}
+        </button>
+        <button onClick={onReset} style={{ flex: 1, padding: "14px", background: "transparent", border: `1px solid ${C.border}`, color: C.gray, fontSize: "11px", letterSpacing: "0.25em", textTransform: "uppercase", fontFamily: "'Share Tech Mono', monospace", cursor: "pointer" }}>
+          TRY ANOTHER
+        </button>
       </div>
     </div>
   );
@@ -633,7 +624,7 @@ export default function CourseOrNothing() {
             <div style={{ marginBottom: "40px" }}>
               <div style={{ border: `1px solid ${loading ? (paid && seriousMode ? C.white : C.green) : C.border}`, transition: "border-color 0.2s", animation: loading ? (paid && seriousMode ? "pulse-white 1s infinite" : "pulse-green 1s infinite") : "none" }}>
                 <div style={{ padding: "8px 16px", borderBottom: `1px solid ${C.border}`, fontSize: "10px", color: paid && seriousMode ? C.white : C.green, letterSpacing: "0.2em", display: "flex", justifyContent: "space-between" }}>
-                  <span>{paid && seriousMode ? "ALL_JOKES_ASIDE_TERMINAL" : "INPUT_TERMINAL"}</span><span style={{ opacity: tick ? 1 : 0 }}>█</span>
+                  <span>{paid && seriousMode ? "GURU_MODE_TERMINAL" : "INPUT_TERMINAL"}</span><span style={{ opacity: tick ? 1 : 0 }}>█</span>
                 </div>
                 <textarea value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKey}
                   placeholder={paid && seriousMode
