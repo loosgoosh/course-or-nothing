@@ -39,7 +39,7 @@ const TESTIMONIALS = [
 
 const LARP_ITEMS = [
   { name: "GOLD WRAPS", brand: "METAL CARD COVERS", desc: "Turn any card into a Gold or Platinum. No application required.", tag: "LIVE", link: "https://www.goldwraps.com", img: "https://i.imgur.com/yijewmd.jpeg" },
-{ name: "LUXURY WATCHES", brand: "COMING SOON", desc: "Look like you already made it.", tag: "COMING SOON", link: "#", img: "https://i.imgur.com/8gpM3Sd.jpeg" },
+  { name: "LUXURY WATCHES", brand: "COMING SOON", desc: "Look like you already made it.", tag: "COMING SOON", link: "#", img: "https://i.imgur.com/8gpM3Sd.jpeg" },
   { name: "PEPTI AI", brand: "PEPTIDES", desc: "Find your optimal stack. Always consult before you buy.", tag: "LIVE", link: "https://www.peptiai.app/", img: null },
   { name: "SYSTEME.IO", brand: "COURSE PLATFORM", desc: "Build and sell your course. Free to start.", tag: "LIVE", link: "https://systeme.io/?sa=sa0269547185a0bf09ddcbdceb517b59e2363e6d76", img: null },
   { name: "THE FULL LARP KIT", brand: "", desc: "Everything you need to look like you already made it.", tag: "COMING SOON", link: "#", img: null },
@@ -167,6 +167,33 @@ function ShopPage() {
           The merch is coming.<br /><span style={{ color: C.green }}>Drop your email to be first in line.</span>
         </p>
       </div>
+
+      {/* DASHBOARD BUNDLE — FIRST */}
+      <div style={{ marginBottom: "48px" }}>
+        <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "20px" }}>▶ NOW AVAILABLE — CON DASHBOARD BUNDLE</div>
+        <div style={{ border: `1px solid ${C.green}`, background: C.greenFaint, padding: "28px 32px", marginBottom: "1px" }}>
+          <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "36px", color: C.white, marginBottom: "8px", lineHeight: 1 }}>THE CON DASHBOARD BUNDLE</div>
+          <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.8, marginBottom: "20px" }}>
+            3 phone wallpapers. Course Creator. Business Intelligence. Portfolio Terminal.<br />
+            Set one as your wallpaper. Look like you're running a 7 figure operation.
+          </div>
+          <div style={{ display: "flex", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
+            {["COURSE CREATOR OS", "BUSINESS INTELLIGENCE", "PORTFOLIO TERMINAL"].map((d, i) => (
+              <div key={i} style={{ background: "#111", border: `1px solid ${C.border}`, padding: "6px 12px", fontSize: "9px", color: C.green, letterSpacing: "0.2em" }}>{d}</div>
+            ))}
+          </div>
+          <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: C.green, lineHeight: 1, marginBottom: "20px" }}>$9.99</div>
+          <a href={STRIPE_DASHBOARD} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "block" }}>
+            <button style={{ width: "100%", padding: "16px", background: C.green, border: "none", color: C.black, fontSize: "13px", fontWeight: "700", fontFamily: "'Share Tech Mono', monospace", letterSpacing: "0.3em", textTransform: "uppercase", cursor: "pointer" }}
+              onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
+              onMouseLeave={e => e.currentTarget.style.opacity = "1"}>
+              ▶ GET THE BUNDLE — $9.99
+            </button>
+          </a>
+        </div>
+      </div>
+
+      {/* WAITLIST — SECOND */}
       <div style={{ border: `1px solid ${C.green}`, marginBottom: "48px", background: C.greenFaint }}>
         <div style={{ padding: "10px 24px", borderBottom: `1px solid ${C.greenDim}`, fontSize: "10px", color: C.green, letterSpacing: "0.3em" }}>▶ JOIN THE WAITLIST</div>
         <div style={{ padding: "24px" }}>
@@ -183,30 +210,8 @@ function ShopPage() {
           )}
         </div>
       </div>
-      <div style={{ marginBottom: "48px" }}>
-  <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "20px" }}>▶ NOW AVAILABLE — CON DASHBOARD BUNDLE</div>
-  <div style={{ border: `1px solid ${C.green}`, background: C.greenFaint, padding: "28px 32px", marginBottom: "1px" }}>
-    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "36px", color: C.white, marginBottom: "8px", lineHeight: 1 }}>THE CON DASHBOARD BUNDLE</div>
-    <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.8, marginBottom: "20px" }}>
-      3 phone wallpapers. Course Creator. Business Intelligence. Portfolio Terminal.<br />
-      Set one as your wallpaper. Look like you're running a 7 figure operation.
-    </div>
-    <div style={{ display: "flex", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
-      {["COURSE CREATOR OS", "BUSINESS INTELLIGENCE", "PORTFOLIO TERMINAL"].map((d, i) => (
-        <div key={i} style={{ background: "#111", border: `1px solid ${C.border}`, padding: "6px 12px", fontSize: "9px", color: C.green, letterSpacing: "0.2em" }}>{d}</div>
-      ))}
-    </div>
-    <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: C.green, lineHeight: 1, marginBottom: "20px" }}>$9.99</div>
-    <a href="https://buy.stripe.com/28EeVed98gQzbI032UbZe0c" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "block" }}>
-      <button style={{ width: "100%", padding: "16px", background: C.green, border: "none", color: C.black, fontSize: "13px", fontWeight: "700", fontFamily: "'Share Tech Mono', monospace", letterSpacing: "0.3em", textTransform: "uppercase", cursor: "pointer" }}
-        onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
-        onMouseLeave={e => e.currentTarget.style.opacity = "1"}>
-        ▶ GET THE BUNDLE — $9.99
-      </button>
-    </a>
-  </div>
-</div>
 
+      {/* MERCH PREVIEW */}
       <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "20px" }}>▶ PREVIEW</div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px" }}>
         {items.map((item, i) => (
