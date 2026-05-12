@@ -5,7 +5,8 @@ const API_URL = "https://insurance-commission-tracker-production.up.railway.app/
 
 const STRIPE_MONTHLY = "https://buy.stripe.com/4gM8wQc548k3h2k6f6bZe08";
 const STRIPE_LIFETIME = "https://buy.stripe.com/5kQbJ20mm2ZJfYg0UMbZe09";
-const STRIPE_DASHBOARD = "https://courseornothing.gumroad.com/l/CONdashboards";
+const GUMROAD_DASHBOARD_PHONE = "https://courseornothing.gumroad.com/l/CONdashboards";
+const GUMROAD_DASHBOARD_DESKTOP = "https://courseornothing.gumroad.com/l/shdgf";
 const GUMROAD_COURSE = "https://courseornothing.gumroad.com/l/ijqhs";
 const SHOP_FORMSPREE = "https://formspree.io/f/mbdqyyly";
 
@@ -168,14 +169,17 @@ function ShopPage() {
         </p>
       </div>
 
-      {/* DASHBOARD BUNDLE — FIRST */}
+      {/* DASHBOARD BUNDLES */}
       <div style={{ marginBottom: "48px" }}>
-        <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "20px" }}>▶ NOW AVAILABLE — CON DASHBOARD BUNDLE</div>
+        <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "20px" }}>▶ NOW AVAILABLE — CON DASHBOARD BUNDLES</div>
+
+        {/* Phone Bundle */}
         <div style={{ border: `1px solid ${C.green}`, background: C.greenFaint, padding: "28px 32px", marginBottom: "1px" }}>
+          <div style={{ fontSize: "9px", color: C.green, letterSpacing: "0.3em", marginBottom: "8px" }}>PHONE WALLPAPERS</div>
           <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "36px", color: C.white, marginBottom: "8px", lineHeight: 1 }}>THE CON DASHBOARD BUNDLE</div>
           <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.8, marginBottom: "20px" }}>
-            3 phone wallpapers. Course Creator. Business Intelligence. Portfolio Terminal.<br />
-            Set one as your wallpaper. Look like you're running a 7 figure operation.
+            3 iPhone wallpapers. Course Creator. Business Intelligence. Portfolio Terminal.<br />
+            Look like you're running a 7 figure operation.
           </div>
           <div style={{ display: "flex", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
             {["COURSE CREATOR OS", "BUSINESS INTELLIGENCE", "PORTFOLIO TERMINAL"].map((d, i) => (
@@ -183,11 +187,36 @@ function ShopPage() {
             ))}
           </div>
           <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: C.green, lineHeight: 1, marginBottom: "20px" }}>$9.99</div>
-          <a href={STRIPE_DASHBOARD} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "block" }}>
+          <a href={GUMROAD_DASHBOARD_PHONE} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "block" }}>
             <button style={{ width: "100%", padding: "16px", background: C.green, border: "none", color: C.black, fontSize: "13px", fontWeight: "700", fontFamily: "'Share Tech Mono', monospace", letterSpacing: "0.3em", textTransform: "uppercase", cursor: "pointer" }}
               onMouseEnter={e => e.currentTarget.style.opacity = "0.85"}
               onMouseLeave={e => e.currentTarget.style.opacity = "1"}>
-              ▶ GET THE BUNDLE — $9.99
+              ▶ GET PHONE BUNDLE — $9.99
+            </button>
+          </a>
+        </div>
+
+        {/* Desktop Bundle */}
+        <div style={{ border: `1px solid ${C.border}`, background: "#080808", padding: "28px 32px", marginBottom: "1px" }}
+          onMouseEnter={e => e.currentTarget.style.borderColor = C.green}
+          onMouseLeave={e => e.currentTarget.style.borderColor = C.border}>
+          <div style={{ fontSize: "9px", color: C.gray, letterSpacing: "0.3em", marginBottom: "8px" }}>DESKTOP WALLPAPERS</div>
+          <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "36px", color: C.white, marginBottom: "8px", lineHeight: 1 }}>THE CON DESKTOP BUNDLE</div>
+          <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.8, marginBottom: "20px" }}>
+            3 desktop wallpapers at 1920x1080. Same deadpan energy.<br />
+            For your MacBook, PC, or monitor setup.
+          </div>
+          <div style={{ display: "flex", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
+            {["COURSE CREATOR OS", "BUSINESS INTELLIGENCE", "PORTFOLIO TERMINAL"].map((d, i) => (
+              <div key={i} style={{ background: "#111", border: `1px solid ${C.border}`, padding: "6px 12px", fontSize: "9px", color: C.gray, letterSpacing: "0.2em" }}>{d}</div>
+            ))}
+          </div>
+          <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "48px", color: C.white, lineHeight: 1, marginBottom: "20px" }}>$9.99</div>
+          <a href={GUMROAD_DASHBOARD_DESKTOP} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "block" }}>
+            <button style={{ width: "100%", padding: "16px", background: "transparent", border: `1px solid ${C.green}`, color: C.green, fontSize: "13px", fontWeight: "700", fontFamily: "'Share Tech Mono', monospace", letterSpacing: "0.3em", textTransform: "uppercase", cursor: "pointer" }}
+              onMouseEnter={e => { e.currentTarget.style.background = C.green; e.currentTarget.style.color = C.black; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = C.green; }}>
+              ▶ GET DESKTOP BUNDLE — $9.99
             </button>
           </a>
         </div>
