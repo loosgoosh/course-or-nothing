@@ -153,7 +153,7 @@ function ShopPage() {
   const items = [
     { name: "CON LAPTOP SLEEVE", desc: "Black. Neon green. Carry the brand.", tag: "DROPPING SOON", img: "/laptopsleeve.jpg" },
     { name: "CON TEE", desc: "Oversized. All skills. Monetizable.", tag: "DROPPING SOON", img: "/con-tee.jpg" },
-    { name: "CON HAT", desc: "Structured. Clean. Unhinged.", tag: "DROPPING SOON", img: "/con-hat.jpg" },
+    { name: "CON HAT", desc: "Structured. Clean.", tag: "DROPPING SOON", img: "/con-hat.jpg" },
     { name: "CON HOODIE", desc: "Black. Neon green. Heavy.", tag: "DROPPING SOON", img: "/con-hoodie.PNG" },
   ];
 
