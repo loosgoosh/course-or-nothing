@@ -255,7 +255,7 @@ function ShopPage() {
               <img
                 src={item.img}
                 alt={item.name}
-                style={{ width: "100%", display: "block", borderTop: `1px solid ${C.border}` }}
+                style={{ width: "100%", display: "block", borderTop: `1px solid ${C.border}`, objectFit: "cover", maxHeight: "220px" }}
               />
             )}
           </div>
