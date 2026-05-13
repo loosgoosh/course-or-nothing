@@ -153,7 +153,7 @@ function ShopPage() {
   const items = [
     { name: "CON HOODIE", desc: "Black. Neon green. Heavy.", tag: "DROPPING SOON" },
     { name: "CON TEE", desc: "Oversized. All skills. Monetizable.", tag: "DROPPING SOON" },
-    { name: "CON SOCKS", desc: "You know what they say.", tag: "DROPPING SOON" },
+    { name: "CON LAPTOP SLEEVE", desc: "You know what they say.", tag: "DROPPING SOON" },
     { name: "CON HAT", desc: "Structured. Clean. Unhinged.", tag: "DROPPING SOON" },
   ];
 
@@ -178,7 +178,7 @@ function ShopPage() {
           <div style={{ fontSize: "9px", color: C.green, letterSpacing: "0.3em", marginBottom: "8px" }}>PHONE WALLPAPERS</div>
           <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "36px", color: C.white, marginBottom: "8px", lineHeight: 1 }}>THE CON DASHBOARD BUNDLE</div>
           <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.8, marginBottom: "20px" }}>
-            3 iPhone wallpapers. Course Creator. Business Intelligence. Portfolio Terminal.<br />
+            3 Phone dashboards. Course Creator. Business Intelligence. Portfolio Terminal.<br />
             Look like you're running a 7 figure operation.
           </div>
           <div style={{ display: "flex", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
@@ -203,7 +203,7 @@ function ShopPage() {
           <div style={{ fontSize: "9px", color: C.gray, letterSpacing: "0.3em", marginBottom: "8px" }}>DESKTOP WALLPAPERS</div>
           <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "36px", color: C.white, marginBottom: "8px", lineHeight: 1 }}>THE CON DESKTOP BUNDLE</div>
           <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.8, marginBottom: "20px" }}>
-            3 desktop wallpapers at 1920x1080. Same deadpan energy.<br />
+            3 desktop dashboards at 1920x1080. Same deadpan energy.<br />
             For your MacBook, PC, or monitor setup.
           </div>
           <div style={{ display: "flex", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
