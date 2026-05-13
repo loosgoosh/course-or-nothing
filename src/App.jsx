@@ -151,10 +151,10 @@ function ShopPage() {
   };
 
   const items = [
-    { name: "CON HOODIE", desc: "Black. Neon green. Heavy.", tag: "DROPPING SOON" },
-    { name: "CON TEE", desc: "Oversized. All skills. Monetizable.", tag: "DROPPING SOON" },
-    { name: "CON LAPTOP SLEEVE", desc: "You know what they say.", tag: "DROPPING SOON" },
-    { name: "CON HAT", desc: "Structured. Clean. Unhinged.", tag: "DROPPING SOON" },
+    { name: "CON LAPTOP SLEEVE", desc: "Black. Neon green. Carry the brand.", tag: "DROPPING SOON", img: "/laptopsleeve.jpg" },
+    { name: "CON TEE", desc: "Oversized. All skills. Monetizable.", tag: "DROPPING SOON", img: "/con-tee.jpg" },
+    { name: "CON HAT", desc: "Structured. Clean. Unhinged.", tag: "DROPPING SOON", img: "/con-hat.jpg" },
+    { name: "CON HOODIE", desc: "Black. Neon green. Heavy.", tag: "DROPPING SOON", img: "/con-hoodie.PNG" },
   ];
 
   return (
@@ -178,7 +178,7 @@ function ShopPage() {
           <div style={{ fontSize: "9px", color: C.green, letterSpacing: "0.3em", marginBottom: "8px" }}>PHONE WALLPAPERS</div>
           <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "36px", color: C.white, marginBottom: "8px", lineHeight: 1 }}>THE CON DASHBOARD BUNDLE</div>
           <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.8, marginBottom: "20px" }}>
-            3 Phone dashboards. Course Creator. Business Intelligence. Portfolio Terminal.<br />
+            3 iPhone dashboards. Course Creator. Business Intelligence. Portfolio Terminal.<br />
             Look like you're running a 7 figure operation.
           </div>
           <div style={{ display: "flex", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
@@ -222,7 +222,7 @@ function ShopPage() {
         </div>
       </div>
 
-      {/* WAITLIST — SECOND */}
+      {/* WAITLIST */}
       <div style={{ border: `1px solid ${C.green}`, marginBottom: "48px", background: C.greenFaint }}>
         <div style={{ padding: "10px 24px", borderBottom: `1px solid ${C.greenDim}`, fontSize: "10px", color: C.green, letterSpacing: "0.3em" }}>▶ JOIN THE WAITLIST</div>
         <div style={{ padding: "24px" }}>
@@ -244,14 +244,24 @@ function ShopPage() {
       <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "20px" }}>▶ PREVIEW</div>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px" }}>
         {items.map((item, i) => (
-          <div key={i} style={{ border: `1px solid ${C.border}`, padding: "24px", background: i % 2 === 0 ? C.black : "#080808", position: "relative" }}>
-            <div style={{ position: "absolute", top: "12px", right: "12px", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.green, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
-            <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, letterSpacing: "0.03em", marginBottom: "8px", lineHeight: 1 }}>{item.name}</div>
-            <div style={{ fontSize: "11px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase" }}>{item.desc}</div>
-            <div style={{ marginTop: "16px", fontSize: "10px", color: "#333", letterSpacing: "0.2em" }}>PRICE TBD</div>
+          <div key={i} style={{ border: `1px solid ${C.border}`, background: i % 2 === 0 ? C.black : "#080808", position: "relative", overflow: "hidden" }}>
+            <div style={{ padding: "24px 24px 16px" }}>
+              <div style={{ position: "absolute", top: "12px", right: "12px", background: "#111", border: `1px solid ${C.border}`, padding: "3px 8px", fontSize: "8px", color: C.green, letterSpacing: "0.2em", animation: "pulse 2s infinite" }}>{item.tag}</div>
+              <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "28px", color: C.white, letterSpacing: "0.03em", marginBottom: "8px", lineHeight: 1 }}>{item.name}</div>
+              <div style={{ fontSize: "11px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase" }}>{item.desc}</div>
+              <div style={{ marginTop: "12px", fontSize: "10px", color: "#333", letterSpacing: "0.2em" }}>PRICE TBD</div>
+            </div>
+            {item.img && (
+              <img
+                src={item.img}
+                alt={item.name}
+                style={{ width: "100%", display: "block", borderTop: `1px solid ${C.border}` }}
+              />
+            )}
           </div>
         ))}
       </div>
+
       <div style={{ marginTop: "48px", padding: "20px 24px", border: `1px solid ${C.border}`, background: "#050505" }}>
         <div style={{ fontSize: "10px", color: C.gray, letterSpacing: "0.2em", textTransform: "uppercase", lineHeight: 1.8 }}>
           Questions? Hit us at{" "}
