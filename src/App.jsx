@@ -222,6 +222,44 @@ function ShopPage() {
         </div>
       </div>
 
+{/* COURSE */}
+<div style={{ marginBottom: "48px" }}>
+  <div style={{ fontSize: "10px", color: C.green, letterSpacing: "0.3em", marginBottom: "20px" }}>▶ NOW AVAILABLE — CON COURSE</div>
+  <div style={{ border: `1px solid #ff0000`, background: "#0d0000" }}>
+    <div style={{ borderBottom: "1px solid #330000", padding: "10px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <span style={{ color: "#ff4444", fontSize: "10px", letterSpacing: "0.3em" }}>▶ ON SALE</span>
+      <span style={{ background: "#ff0000", color: C.white, fontSize: "9px", letterSpacing: "0.2em", padding: "3px 8px" }}>INSTANT DOWNLOAD</span>
+    </div>
+    <div style={{ padding: "28px 32px" }}>
+      <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(24px, 5vw, 48px)", color: C.white, letterSpacing: "0.03em", lineHeight: 1.1, marginBottom: "8px" }}>HOW TO SELL YOUR COURSE</div>
+      <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.1em", lineHeight: 1.7, marginBottom: "20px", textTransform: "uppercase" }}>
+        You know what to sell. Now learn how to sell it.<br />5 modules. No fluff. Instant download.
+      </div>
+      <div style={{ marginBottom: "24px" }}>
+        {["Finding Your Course Idea", "Validation", "Build It Fast", "Pricing", "Marketing"].map((m, i) => (
+          <div key={i} style={{ display: "flex", gap: "12px", marginBottom: "6px", fontSize: "11px", color: "#555", letterSpacing: "0.05em" }}>
+            <span style={{ color: "#ff4444", flexShrink: 0 }}>{String(i + 1).padStart(2, "0")}</span>
+            <span>{m}</span>
+          </div>
+        ))}
+      </div>
+      <div style={{ display: "flex", alignItems: "flex-end", gap: "16px", marginBottom: "20px" }}>
+        <div>
+          <div style={{ fontSize: "12px", color: "#444", letterSpacing: "0.1em", textDecoration: "line-through", marginBottom: "2px" }}>$1,999</div>
+          <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "52px", color: "#ff4444", letterSpacing: "0.05em", lineHeight: 1 }}>$297</div>
+        </div>
+        <div style={{ paddingBottom: "8px", fontSize: "10px", color: "#555", letterSpacing: "0.15em", textTransform: "uppercase", lineHeight: 1.6 }}>ONE TIME<br />INSTANT DOWNLOAD</div>
+      </div>
+      <a href={GUMROAD_COURSE} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "block" }}>
+        <button onMouseEnter={e => e.currentTarget.style.background = "#cc0000"} onMouseLeave={e => e.currentTarget.style.background = "#ff0000"}
+          style={{ width: "100%", padding: "18px", background: "#ff0000", border: "none", color: C.white, fontSize: "13px", fontWeight: "700", fontFamily: "'Share Tech Mono', monospace", letterSpacing: "0.3em", textTransform: "uppercase", cursor: "pointer" }}>
+          ▶ GET THE COURSE — $297
+        </button>
+      </a>
+    </div>
+  </div>
+</div>
+
       {/* WAITLIST */}
       <div style={{ border: `1px solid ${C.green}`, marginBottom: "48px", background: C.greenFaint }}>
         <div style={{ padding: "10px 24px", borderBottom: `1px solid ${C.greenDim}`, fontSize: "10px", color: C.green, letterSpacing: "0.3em" }}>▶ JOIN THE WAITLIST</div>
