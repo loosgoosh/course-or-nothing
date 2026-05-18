@@ -203,7 +203,7 @@ function ShopPage() {
           <div style={{ fontSize: "9px", color: C.gray, letterSpacing: "0.3em", marginBottom: "8px" }}>DESKTOP WALLPAPERS</div>
           <div style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "36px", color: C.white, marginBottom: "8px", lineHeight: 1 }}>THE CON DESKTOP BUNDLE</div>
           <div style={{ fontSize: "12px", color: C.gray, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.8, marginBottom: "20px" }}>
-            3 desktop dashboards at 1920x1080. Same deadpan energy.<br />
+            3 desktop dashboards at 1920x1080. <br />
             For your MacBook, PC, or monitor setup.
           </div>
           <div style={{ display: "flex", gap: "8px", marginBottom: "20px", flexWrap: "wrap" }}>
