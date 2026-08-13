@@ -487,10 +487,7 @@ export default function CourseOrNothing() {
     <div style={{ marginTop: "80px", paddingTop: "24px", borderTop: `1px solid ${C.border}` }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "10px", color: "#555", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "16px" }}>
         <span>COURSE OR NOTHING™ — ALL SKILLS ARE MONETIZABLE</span>
-        <a href="https://www.guaschlabs.net" target="_blank" rel="noopener noreferrer" style={{ color: C.green, textDecoration: "none" }}
-          onMouseEnter={e => e.target.style.color = C.white} onMouseLeave={e => e.target.style.color = C.green}>
-          BUILT BY GUASCH LABS
-        </a>
+
       </div>
       <div style={{ marginBottom: "16px" }}>
         <a href="https://www.producthunt.com/products/course-or-nothing?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-course-or-nothing" target="_blank" rel="noopener noreferrer">
